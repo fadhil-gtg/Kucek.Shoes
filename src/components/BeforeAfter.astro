@@ -1,0 +1,95 @@
+---
+---
+
+<section id="hasil" class="section-space bg-kucek-darker">
+  <div class="container-main">
+    <!-- Header -->
+    <div class="text-center mb-16 reveal">
+      <span class="section-label">Hasil Pengerjaan</span>
+      <h2 class="heading-lg text-white mb-4">
+        Before & After
+      </h2>
+      <p class="text-body max-w-2xl mx-auto">
+        Geser untuk melihat perubahan. Buktikan sendiri kualitas hasil cleaning kami.
+      </p>
+    </div>
+
+    <!-- Slider Container -->
+    <div class="reveal max-w-3xl mx-auto">
+      <div class="relative rounded-2xl overflow-hidden border border-kucek-border shadow-2xl shadow-black/30 aspect-square sm:aspect-[4/3]" id="ba-container">
+
+        <!-- Before Image -->
+        <div class="absolute inset-0">
+          <img
+            src="/images/before-dirty.png"
+            alt="Sepatu sebelum di-cleaning"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <!-- Before Label -->
+          <div class="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-lg border border-white/10">
+            Sebelum
+          </div>
+        </div>
+
+        <!-- After Image (clipped) -->
+        <div class="absolute inset-0" id="ba-after" style="clip-path: inset(0 50% 0 0);">
+          <img
+            src="/images/after-clean.png"
+            alt="Sepatu sesudah di-cleaning"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <!-- After Label -->
+          <div class="absolute top-4 right-4 bg-white/90 text-black text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-lg">
+            Sesudah
+          </div>
+        </div>
+
+        <!-- Slider Handle -->
+        <div class="absolute top-0 bottom-0" id="ba-handle" style="left: 50%;">
+          <!-- Line -->
+          <div class="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-0.5 bg-white shadow-lg shadow-white/20"></div>
+          <!-- Circle Handle -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-xl shadow-black/30 cursor-grab active:cursor-grabbing transition-transform duration-150 hover:scale-110">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4M8 15l4 4 4-4"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 8L5 12l4 4M15 8l4 4-4 4"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Range Input (invisible, accessible) -->
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value="50"
+          class="absolute inset-0 w-full h-full opacity-0 cursor-grab active:cursor-grabbing z-10"
+          id="ba-range"
+          aria-label="Geser untuk membandingkan sebelum dan sesudah"
+        />
+      </div>
+
+      <!-- Instruction text -->
+      <p class="text-center text-kucek-muted text-sm mt-4 flex items-center justify-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg>
+        Geser kiri-kanan untuk melihat perubahan
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const range = document.getElementById('ba-range') as HTMLInputElement;
+  const afterEl = document.getElementById('ba-after');
+  const handle = document.getElementById('ba-handle');
+
+  if (range && afterEl && handle) {
+    range.addEventListener('input', () => {
+      const value = parseInt(range.value);
+      afterEl.style.clipPath = `inset(0 ${100 - value}% 0 0)`;
+      handle.style.left = `${value}%`;
+    });
+  }
+</script>

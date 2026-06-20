@@ -1,0 +1,121 @@
+---
+const testimonials = [
+  {
+    name: 'Ahmad R.',
+    initials: 'AR',
+    rating: 5,
+    text: 'Sepatu Jordan saya yang udah kusam banget sekarang jadi kinclong lagi. Hasilnya bener-bener kayak baru. Mantap banget kucek.shoes!',
+  },
+  {
+    name: 'Siti P.',
+    initials: 'SP',
+    rating: 5,
+    text: 'Pertama kali coba dan langsung jadi pelanggan tetap. Prosesnya cepat, hasilnya rapi, dan harganya worth it. Recommended!',
+  },
+  {
+    name: 'Budi W.',
+    initials: 'BW',
+    rating: 5,
+    text: 'Udah coba beberapa tempat cleaning, tapi kucek.shoes yang paling detail. Sole putih lagi, noda hilang semua. Top service!',
+  },
+  {
+    name: 'Dina S.',
+    initials: 'DS',
+    rating: 5,
+    text: 'Respon WhatsApp-nya cepat, pengerjaan tepat waktu, dan hasil cleaning-nya memuaskan. Pasti balik lagi!',
+  },
+  {
+    name: 'Reza M.',
+    initials: 'RM',
+    rating: 5,
+    text: 'Bawa sneaker yang udah mau dibuang karena kotor parah, eh balik jadi bersih kinclong. Terima kasih kucek.shoes!',
+  },
+];
+---
+
+<section id="testimoni" class="section-space bg-kucek-black">
+  <div class="container-main">
+    <!-- Header -->
+    <div class="text-center mb-16 reveal">
+      <span class="section-label">Testimoni</span>
+      <h2 class="heading-lg text-white mb-4">
+        Apa Kata Pelanggan Kami
+      </h2>
+      <p class="text-body max-w-2xl mx-auto">
+        Kepuasan pelanggan adalah prioritas utama kami. Ini kata mereka tentang layanan kucek.shoes.
+      </p>
+    </div>
+
+    <!-- Swiper -->
+    <div class="reveal max-w-4xl mx-auto">
+      <div class="swiper testimonial-swiper">
+        <div class="swiper-wrapper pb-12">
+          {testimonials.map((t) => (
+            <div class="swiper-slide">
+              <div class="card p-6 md:p-8 text-center mx-2">
+                <!-- Stars -->
+                <div class="flex items-center justify-center gap-1 mb-5">
+                  {Array.from({ length: t.rating }).map(() => (
+                    <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                  ))}
+                </div>
+
+                <!-- Quote -->
+                <blockquote class="text-base sm:text-lg text-kucek-gray leading-relaxed mb-6 italic">
+                  "{t.text}"
+                </blockquote>
+
+                <!-- Author -->
+                <div class="flex items-center justify-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-kucek-surface border border-kucek-border flex items-center justify-center">
+                    <span class="text-xs font-bold text-white">{t.initials}</span>
+                  </div>
+                  <div class="text-left">
+                    <p class="text-sm font-semibold text-white">{t.name}</p>
+                    <p class="text-xs text-kucek-muted">Pelanggan</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination !relative !bottom-0 mt-6"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import Swiper from 'swiper';
+  import { Pagination, Autoplay } from 'swiper/modules';
+
+  new Swiper('.testimonial-swiper', {
+    modules: [Pagination, Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 16,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+    },
+  });
+</script>

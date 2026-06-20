@@ -1,0 +1,119 @@
+---
+const plans = [
+  {
+    name: 'Basic',
+    price: '25K',
+    desc: 'Perawatan ringan untuk sepatu sehari-hari',
+    popular: false,
+    features: [
+      'Regular cleaning upper & sole',
+      'Pembersihan tali sepatu',
+      'Deodorizing',
+      'Estimasi 2-3 hari kerja',
+    ],
+    waMsg: 'Halo kucek.shoes, saya ingin order paket Basic',
+  },
+  {
+    name: 'Standard',
+    price: '45K',
+    desc: 'Paket terlaris untuk hasil maksimal',
+    popular: true,
+    features: [
+      'Deep cleaning menyeluruh',
+      'Pembersihan tali sepatu',
+      'Unyellowing sole',
+      'Deodorizing',
+      'Conditioning material',
+      'Estimasi 3-4 hari kerja',
+    ],
+    waMsg: 'Halo kucek.shoes, saya ingin order paket Standard',
+  },
+  {
+    name: 'Premium',
+    price: '75K',
+    desc: 'Layanan terlengkap dengan hasil sempurna',
+    popular: false,
+    features: [
+      'Deep cleaning menyeluruh',
+      'Pembersihan tali sepatu',
+      'Whitening & unyellowing',
+      'Repaint touch-up',
+      'Protection treatment',
+      'Deodorizing premium',
+      'Conditioning material',
+      'Estimasi 4-5 hari kerja',
+    ],
+    waMsg: 'Halo kucek.shoes, saya ingin order paket Premium',
+  },
+];
+---
+
+<section id="harga" class="section-space bg-kucek-black">
+  <div class="container-main">
+    <!-- Header -->
+    <div class="text-center mb-16 reveal">
+      <span class="section-label">Harga</span>
+      <h2 class="heading-lg text-white mb-4">
+        Pilih Paket yang Sesuai
+      </h2>
+      <p class="text-body max-w-2xl mx-auto">
+        Harga terjangkau untuk hasil cleaning berkualitas tinggi.
+        Pilih paket yang sesuai dengan kebutuhanmu.
+      </p>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-5 lg:gap-8 max-w-5xl mx-auto items-start">
+      {plans.map((plan, i) => (
+        <div class={`reveal reveal-delay-${i + 1} relative ${plan.popular ? 'md:-mt-4 md:mb-[-16px]' : ''}`}>
+          {/* Popular badge */}
+          {plan.popular && (
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+              <span class="bg-white text-black text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                Paling Populer
+              </span>
+            </div>
+          )}
+
+          <div class={`card p-6 md:p-8 flex flex-col h-full ${plan.popular ? 'border-white/20 bg-kucek-surface/50 ring-1 ring-white/10' : ''}`}>
+            <!-- Plan name & price -->
+            <div class="mb-6">
+              <h3 class="text-lg font-bold text-white mb-1">{plan.name}</h3>
+              <p class="text-sm text-kucek-muted mb-4">{plan.desc}</p>
+              <div class="flex items-baseline gap-1">
+                <span class="text-sm text-kucek-muted font-medium">Rp</span>
+                <span class="text-4xl md:text-5xl font-extrabold text-white">{plan.price}</span>
+                <span class="text-sm text-kucek-muted font-medium">/ pasang</span>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="h-px bg-kucek-border mb-6"></div>
+
+            <!-- Features -->
+            <ul class="space-y-3 mb-8 flex-grow">
+              {plan.features.map((feature) => (
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-white/70 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                  </svg>
+                  <span class="text-sm text-kucek-gray">{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <!-- CTA -->
+            <a
+              href={`https://wa.me/6281234567890?text=${encodeURIComponent(plan.waMsg)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={plan.popular ? 'btn-primary w-full' : 'btn-secondary w-full'}
+            >
+              Pilih {plan.name}
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

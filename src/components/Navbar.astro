@@ -1,0 +1,118 @@
+---
+const navLinks = [
+  { label: 'Layanan', href: '#layanan' },
+  { label: 'Hasil Kerja', href: '#hasil' },
+  { label: 'Harga', href: '#harga' },
+  { label: 'Testimoni', href: '#testimoni' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20ingin%20order%20jasa%20cleaning';
+---
+
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+  <div class="container-main">
+    <nav class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <a href="#" class="relative z-10 flex items-baseline gap-0.5 group">
+        <span class="text-lg md:text-xl font-extrabold text-white tracking-tight">kucek</span>
+        <span class="text-lg md:text-xl font-extrabold text-kucek-muted tracking-tight">.shoes</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center gap-8">
+        {navLinks.map((link) => (
+          <a href={link.href} class="text-sm text-kucek-gray hover:text-white transition-colors duration-300 font-medium">
+            {link.label}
+          </a>
+        ))}
+        <a href={waLink} target="_blank" rel="noopener noreferrer" class="btn-primary !py-2.5 !px-5 !text-sm">
+          Order Sekarang
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button
+        id="mobile-toggle"
+        class="relative z-10 lg:hidden flex flex-col items-center justify-center w-10 h-10 gap-1.5"
+        aria-label="Toggle menu"
+      >
+        <span class="hamburger-line w-6 h-[2px] bg-white transition-all duration-300 origin-center"></span>
+        <span class="hamburger-line w-6 h-[2px] bg-white transition-all duration-300 origin-center"></span>
+        <span class="hamburger-line w-4 h-[2px] bg-white transition-all duration-300 origin-center ml-auto"></span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-kucek-black/98 backdrop-blur-xl -translate-x-full transition-transform duration-500 ease-out z-40">
+    <div class="flex flex-col items-center justify-center h-full gap-8">
+      {navLinks.map((link) => (
+        <a href={link.href} class="mobile-link text-2xl font-semibold text-kucek-gray hover:text-white transition-colors duration-300">
+          {link.label}
+        </a>
+      ))}
+      <a href={waLink} target="_blank" rel="noopener noreferrer" class="btn-primary mt-4">
+        Order Sekarang
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Scrolled state */
+  #navbar.scrolled {
+    @apply bg-kucek-black/90 backdrop-blur-xl border-b border-white/5;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Hamburger open state */
+  #mobile-toggle.open .hamburger-line:nth-child(1) {
+    transform: translateY(5px) rotate(45deg);
+  }
+  #mobile-toggle.open .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  #mobile-toggle.open .hamburger-line:nth-child(3) {
+    width: 1.5rem;
+    transform: translateY(-5px) rotate(-45deg);
+  }
+
+  #mobile-menu.open {
+    transform: translateX(0);
+  }
+</style>
+
+<script>
+  // Scroll detection
+  const navbar = document.getElementById('navbar');
+  const onScroll = () => {
+    if (window.scrollY > 30) {
+      navbar?.classList.add('scrolled');
+    } else {
+      navbar?.classList.remove('scrolled');
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu
+  const toggle = document.getElementById('mobile-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  toggle?.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    mobileMenu?.classList.toggle('open');
+    document.body.style.overflow = mobileMenu?.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // Close on link click
+  document.querySelectorAll('.mobile-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      toggle?.classList.remove('open');
+      mobileMenu?.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>

@@ -1,0 +1,106 @@
+---
+const faqs = [
+  {
+    q: 'Berapa lama pengerjaannya?',
+    a: 'Estimasi pengerjaan tergantung paket yang dipilih. Paket Basic 2-3 hari kerja, Standard 3-4 hari kerja, dan Premium 4-5 hari kerja. Untuk kondisi tertentu yang membutuhkan treatment ekstra, kami akan informasikan estimasi yang lebih akurat setelah konsultasi.',
+  },
+  {
+    q: 'Aman untuk semua bahan?',
+    a: 'Ya, kami menggunakan produk pembersih khusus yang disesuaikan dengan jenis material. Baik itu kulit asli, suede, nubuck, canvas, mesh, hingga knit — semuanya aman. Tim kami terlatih menangani berbagai jenis material dengan teknik yang tepat.',
+  },
+  {
+    q: 'Bisa antar jemput?',
+    a: 'Tentu! Kami menyediakan layanan antar-jemput gratis untuk area tertentu. Untuk area luar jangkauan, kami bisa menggunakan jasa kurir dengan ongkir yang terjangkau. Hubungi kami via WhatsApp untuk detail lebih lanjut.',
+  },
+  {
+    q: 'Semua noda bisa hilang?',
+    a: 'Sebagian besar noda bisa dihilangkan dengan proses deep cleaning kami. Namun, untuk noda yang sudah sangat lama menempel atau kerusakan material, hasilnya bisa bervariasi. Kami selalu konsultasi terlebih dahulu agar ekspektasi sesuai dengan hasil.',
+  },
+  {
+    q: 'Bagaimana cara order?',
+    a: 'Caranya sangat mudah! Cukup hubungi kami via WhatsApp, ceritakan kebutuhan kamu, lalu kami akan memberikan rekomendasi paket terbaik. Setelah deal, kamu bisa kirim atau kami jemput item-nya. Mudah, cepat, dan aman!',
+  },
+];
+
+const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20ada%20pertanyaan';
+---
+
+<section id="faq" class="section-space bg-kucek-darker">
+  <div class="container-main">
+    <!-- Header -->
+    <div class="text-center mb-16 reveal">
+      <span class="section-label">FAQ</span>
+      <h2 class="heading-lg text-white mb-4">
+        Pertanyaan yang Sering Diajukan
+      </h2>
+      <p class="text-body max-w-2xl mx-auto">
+        Belum menemukan jawabannya? Hubungi kami langsung via WhatsApp.
+      </p>
+    </div>
+
+    <!-- Accordion -->
+    <div class="max-w-3xl mx-auto space-y-3 reveal">
+      {faqs.map((faq, i) => (
+        <div class="faq-item card overflow-hidden" data-faq={i}>
+          <button
+            class="faq-toggle w-full flex items-center justify-between gap-4 p-5 md:p-6 text-left transition-colors duration-300 hover:bg-kucek-surface/30"
+            aria-expanded="false"
+          >
+            <span class="text-base sm:text-lg font-semibold text-white pr-4">{faq.q}</span>
+            <svg class="faq-chevron w-5 h-5 text-kucek-muted shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-content overflow-hidden transition-all duration-300 ease-out max-h-0">
+            <div class="px-5 md:px-6 pb-5 md:pb-6 pt-0">
+              <p class="text-body-sm leading-relaxed">{faq.a}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12 reveal">
+      <p class="text-kucek-gray mb-4">Masih ada pertanyaan?</p>
+      <a href={waLink} target="_blank" rel="noopener noreferrer" class="btn-secondary">
+        Tanya via WhatsApp
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.faq-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const content = item?.querySelector('.faq-content') as HTMLElement;
+      const chevron = item?.querySelector('.faq-chevron');
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      // Close all others
+      document.querySelectorAll('.faq-item').forEach((otherItem) => {
+        if (otherItem !== item) {
+          const otherContent = otherItem.querySelector('.faq-content') as HTMLElement;
+          const otherChevron = otherItem.querySelector('.faq-chevron');
+          const otherBtn = otherItem.querySelector('.faq-toggle');
+          if (otherContent) otherContent.style.maxHeight = '0';
+          otherChevron?.classList.remove('rotate-180');
+          otherBtn?.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Toggle current
+      if (isOpen) {
+        if (content) content.style.maxHeight = '0';
+        chevron?.classList.remove('rotate-180');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        if (content) content.style.maxHeight = content.scrollHeight + 'px';
+        chevron?.classList.add('rotate-180');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
