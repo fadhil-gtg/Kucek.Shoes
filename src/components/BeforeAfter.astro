@@ -21,7 +21,7 @@
         <!-- Before Image -->
         <div class="absolute inset-0">
           <img
-            src="/images/before-dirty.png"
+            src={`${import.meta.env.BASE_URL}images/before-dirty.png`}
             alt="Sepatu sebelum di-cleaning"
             class="w-full h-full object-cover"
             loading="lazy"
@@ -35,7 +35,7 @@
         <!-- After Image (clipped) -->
         <div class="absolute inset-0" id="ba-after" style="clip-path: inset(0 50% 0 0);">
           <img
-            src="/images/after-clean.png"
+            src={`${import.meta.env.BASE_URL}images/after-clean.png`}
             alt="Sepatu sesudah di-cleaning"
             class="w-full h-full object-cover"
             loading="lazy"
