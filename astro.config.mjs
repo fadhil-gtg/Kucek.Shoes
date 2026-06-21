@@ -1,13 +1,8 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://kucekshoes.vercel.app',
-  integrations: [
-    tailwind(),
-    sitemap()
-  ],
+  integrations: [tailwind()],
   output: 'static',
   devToolbar: {
     enabled: false,
