@@ -1,65 +1,224 @@
 ---
 const services = [
-  {
-    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/></svg>`,
-    title: 'Deep Cleaning',
-    desc: 'Pembersihan menyeluruh hingga ke sela-sela terkecil. Menghilangkan noda membandel dan mengembalikan tampilan asli sepatu.',
+  { 
+    id: '01', 
+    title: 'Deep Cleaning', 
+    desc: 'Pembersihan menyeluruh hingga sela terkecil untuk hasil maksimal.', 
+    benefits: ['Membersihkan area sulit dijangkau', 'Aman untuk berbagai material', 'Hasil lebih bersih dan segar'] 
   },
-  {
-    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25z"/></svg>`,
-    title: 'Regular Cleaning',
-    desc: 'Perawatan rutin untuk menjaga kebersihan sepatu sehari-hari. Cocok untuk maintenance berkala.',
+  { 
+    id: '02', 
+    title: 'Regular Cleaning', 
+    desc: 'Pembersihan standar untuk perawatan harian sepatu kesayanganmu.', 
+    benefits: ['Cepat dan efisien', 'Menjaga keawetan sepatu', 'Cocok untuk kotoran ringan'] 
   },
-  {
-    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>`,
-    title: 'Whitening',
-    desc: 'Proses pemutihan khusus untuk mengembalikan warna putih asli pada sole dan upper sepatu.',
+  { 
+    id: '03', 
+    title: 'Whitening', 
+    desc: 'Mengembalikan warna putih cerah pada sol sepatu yang menguning.', 
+    benefits: ['Menghilangkan noda kuning', 'Formula khusus anti-rusak', 'Sepatu terlihat seperti baru'] 
   },
-  {
-    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>`,
-    title: 'Repaint',
-    desc: 'Pengecatan ulang sepatu untuk memperbaiki warna yang pudar atau mengubah tampilan dengan warna baru.',
+  { 
+    id: '04', 
+    title: 'Repaint', 
+    desc: 'Pengecatan ulang untuk mengembalikan warna asli atau kustom warna baru.', 
+    benefits: ['Warna tajam dan awet', 'Bahan cat premium', 'Pengerjaan sangat detail'] 
   },
-  {
-    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z"/></svg>`,
-    title: 'Unyellowing',
-    desc: 'Menghilangkan efek kuning pada sole midsole dan outsole. Tampilan kembali putih bersih seperti baru.',
+  { 
+    id: '05', 
+    title: 'Unyellowing', 
+    desc: 'Perawatan intensif khusus untuk material karet dan plastik yang menguning.', 
+    benefits: ['Teknik oksidasi khusus', 'Material kembali putih', 'Mencegah kerusakan lanjut'] 
   },
-  {
-    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>`,
-    title: 'Protection Treatment',
-    desc: 'Lapisan pelindung untuk menjaga sepatu dari noda, air, dan kotoran. Perlindungan ekstra untuk aksesorismu.',
-  },
+  { 
+    id: '06', 
+    title: 'Protection', 
+    desc: 'Lapisan pelindung anti air dan noda untuk melindungi sepatu barumu.', 
+    benefits: ['Water & stain repellent', 'Efek daun talas', 'Perlindungan hingga 3 bulan'] 
+  }
 ];
 ---
 
-<section id="layanan" class="section-space bg-kucek-black">
-  <div class="container-main">
+<section id="services" class="py-24 md:py-32 bg-[#0A0A0A]">
+  <div class="container-main max-w-6xl mx-auto">
+    
     <!-- Header -->
-    <div class="text-center mb-16 reveal">
-      <span class="section-label">Layanan Kami</span>
-      <h2 class="heading-lg text-white mb-4">
-        Apa yang Kami Kerjakan
+    <div class="text-left mb-16 md:mb-24">
+      <span class="inline-block text-[#FFE600] font-bold text-sm tracking-[0.2em] uppercase mb-5">LAYANAN KAMI</span>
+      <h2 class="font-display text-white text-[4rem] sm:text-[5rem] lg:text-[7rem] leading-[0.9] uppercase tracking-wide">
+        <span class="block">APA YANG KAMI</span>
+        <span class="block text-white">KERJAKAN</span>
       </h2>
-      <p class="text-body max-w-2xl mx-auto">
-        Berbagai layanan pembersihan dan perawatan profesional untuk menjaga aksesoris favoritmu tetap prima.
-      </p>
     </div>
 
-    <!-- Service Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-      {services.map((service, i) => (
-        <div class={`reveal reveal-delay-${(i % 3) + 1} card card-hover p-6 md:p-8 group`}>
-          <!-- Icon -->
-          <div class="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-5 text-white transition-all duration-300 group-hover:bg-white/10 group-hover:border-white/20">
-            <Fragment set:html={service.icon} />
+    <!-- Desktop Split Layout -->
+    <div class="hidden lg:grid grid-cols-12 gap-12 xl:gap-20 items-stretch">
+      
+      <!-- Left: Navigation Menu -->
+      <div class="col-span-5 flex flex-col justify-center relative">
+        <div class="absolute left-0 top-0 bottom-0 w-[1px] bg-white/10"></div>
+        <div class="flex flex-col">
+          {services.map((service, index) => (
+            <button 
+              class={`service-btn text-left py-6 px-8 transition-all duration-300 flex items-center gap-6 group relative ${index === 0 ? 'active' : ''}`}
+              data-index={index}
+            >
+              <div class="active-indicator absolute left-[-1px] top-0 bottom-0 w-[2px] bg-[#FFE600] opacity-0 transition-opacity duration-300"></div>
+              <span class="text-sm font-mono tracking-widest text-white/30 group-hover:text-[#FFE600] transition-colors duration-300 service-id">{service.id}</span>
+              <span class="text-3xl xl:text-4xl font-display uppercase tracking-wider text-white/50 group-hover:text-[#FFE600] group-hover:translate-x-2 transition-all duration-300 service-title">{service.title}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right: Detail Panel -->
+      <div class="col-span-7 relative min-h-[480px]">
+        <div class="bg-[#111111] border border-white/5 rounded-[20px] p-12 xl:p-16 shadow-2xl relative overflow-hidden h-full flex flex-col justify-center">
+          
+          <!-- Large Decorative Background Number -->
+          <div id="panel-bg-num" class="absolute -right-4 -bottom-12 text-[20rem] xl:text-[24rem] leading-none font-display text-white/[0.03] select-none pointer-events-none transition-opacity duration-300">
+            01
           </div>
 
           <!-- Content -->
-          <h3 class="text-lg font-bold text-white mb-3">{service.title}</h3>
-          <p class="text-body-sm">{service.desc}</p>
+          <div id="panel-content" class="relative z-10 transition-opacity duration-300">
+            <h3 id="panel-title" class="text-4xl xl:text-5xl font-display text-white uppercase tracking-wide mb-6">Deep Cleaning</h3>
+            <p id="panel-desc" class="text-[#A1A1A1] text-xl leading-relaxed mb-10 max-w-[90%]">
+              Pembersihan menyeluruh hingga sela terkecil untuk hasil maksimal.
+            </p>
+            <ul id="panel-benefits" class="space-y-5">
+              <li class="flex items-center gap-4 text-white/90 text-lg">
+                <span class="text-[#FFE600] font-bold">✓</span>
+                Membersihkan area sulit dijangkau
+              </li>
+              <li class="flex items-center gap-4 text-white/90 text-lg">
+                <span class="text-[#FFE600] font-bold">✓</span>
+                Aman untuk berbagai material
+              </li>
+              <li class="flex items-center gap-4 text-white/90 text-lg">
+                <span class="text-[#FFE600] font-bold">✓</span>
+                Hasil lebih bersih dan segar
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Stacked Card Layout -->
+    <div class="lg:hidden relative w-full mt-8" style="height: 240vh;">
+      {services.map((service, index) => (
+        <div 
+          class="absolute w-full"
+          style={`top: ${index * 32}vh; bottom: ${(services.length - 1 - index) * 15}vh; z-index: ${index + 10};`}
+        >
+          <div 
+            class="sticky w-full transition-transform"
+            style={`top: ${90 + (index * 75)}px;`}
+          >
+            <div class="bg-[#111111] border border-white/10 rounded-[24px] p-6 sm:p-8 shadow-[0_-15px_40px_rgba(0,0,0,0.8)] relative overflow-hidden flex flex-col gap-5">
+              <!-- Header Row: Number + Title -->
+              <div class="flex items-center gap-4">
+                <span class="text-[3rem] font-display text-[#FFE600] leading-none">{service.id}</span>
+                <h3 class="text-2xl sm:text-3xl font-display uppercase tracking-wide text-white mt-2 leading-none">{service.title}</h3>
+              </div>
+              <!-- Description -->
+              <p class="text-[#A1A1A1] text-base sm:text-lg leading-relaxed">{service.desc}</p>
+            </div>
+          </div>
         </div>
       ))}
     </div>
+
   </div>
 </section>
+
+<style>
+  /* Active state for desktop buttons */
+  .service-btn.active .service-id {
+    color: #FFE600;
+  }
+  .service-btn.active .service-title {
+    color: #FFE600;
+    transform: translateX(0.5rem);
+    opacity: 1;
+  }
+  .service-btn.active .active-indicator {
+    opacity: 1;
+  }
+  .service-btn.active {
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+</style>
+
+<script>
+  const servicesData = [
+    { id: '01', title: 'Deep Cleaning', desc: 'Pembersihan menyeluruh hingga sela terkecil untuk hasil maksimal.', benefits: ['Membersihkan area sulit dijangkau', 'Aman untuk berbagai material', 'Hasil lebih bersih dan segar'] },
+    { id: '02', title: 'Regular Cleaning', desc: 'Pembersihan standar untuk perawatan harian sepatu kesayanganmu.', benefits: ['Cepat dan efisien', 'Menjaga keawetan sepatu', 'Cocok untuk kotoran ringan'] },
+    { id: '03', title: 'Whitening', desc: 'Mengembalikan warna putih cerah pada sol sepatu yang menguning.', benefits: ['Menghilangkan noda kuning', 'Formula khusus anti-rusak', 'Sepatu terlihat seperti baru'] },
+    { id: '04', title: 'Repaint', desc: 'Pengecatan ulang untuk mengembalikan warna asli atau kustom warna baru.', benefits: ['Warna tajam dan awet', 'Bahan cat premium', 'Pengerjaan sangat detail'] },
+    { id: '05', title: 'Unyellowing', desc: 'Perawatan intensif khusus untuk material karet dan plastik yang menguning.', benefits: ['Teknik oksidasi khusus', 'Material kembali putih', 'Mencegah kerusakan lanjut'] },
+    { id: '06', title: 'Protection', desc: 'Lapisan pelindung anti air dan noda untuk melindungi sepatu barumu.', benefits: ['Water & stain repellent', 'Efek daun talas', 'Perlindungan hingga 3 bulan'] }
+  ];
+
+  function initServices() {
+    // Desktop Interaction
+    const btns = document.querySelectorAll('.service-btn');
+    const panelBgNum = document.getElementById('panel-bg-num');
+    const panelContent = document.getElementById('panel-content');
+    const panelTitle = document.getElementById('panel-title');
+    const panelDesc = document.getElementById('panel-desc');
+    const panelBenefits = document.getElementById('panel-benefits');
+
+    let isAnimating = false;
+
+    btns.forEach(btn => {
+      btn.addEventListener('mouseenter', () => {
+        if (btn.classList.contains('active') || isAnimating) return;
+        
+        const index = btn.getAttribute('data-index');
+        const data = servicesData[index];
+        
+        // Remove active from all
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        isAnimating = true;
+
+        // Fade out
+        panelContent.style.opacity = '0';
+        panelBgNum.style.opacity = '0';
+
+        setTimeout(() => {
+          // Update content
+          panelBgNum.textContent = data.id;
+          panelTitle.textContent = data.title;
+          panelDesc.textContent = data.desc;
+          
+          panelBenefits.innerHTML = data.benefits.map(b => `
+            <li class="flex items-center gap-4 text-white/90 text-lg">
+              <span class="text-[#FFE600] font-bold">✓</span>
+              ${b}
+            </li>
+          `).join('');
+
+          // Fade in
+          panelContent.style.opacity = '1';
+          panelBgNum.style.opacity = '1';
+          
+          setTimeout(() => {
+            isAnimating = false;
+          }, 300); // match transition duration
+        }, 150);
+      });
+    });
+
+  }
+
+  // Initialize on load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initServices);
+  } else {
+    initServices();
+  }
+</script>

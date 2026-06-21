@@ -10,49 +10,57 @@ const navLinks = [
 const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20ingin%20order%20jasa%20cleaning';
 ---
 
-<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
-  <div class="container-main">
-    <nav class="flex items-center justify-between h-16 md:h-20">
+<header id="navbar" class="fixed top-4 left-4 right-4 lg:left-1/2 lg:-translate-x-1/2 lg:w-[calc(100%-2rem)] max-w-6xl z-50 transition-all duration-500 bg-[#FFF200]/90 backdrop-blur-md rounded-full shadow-none px-6 md:px-8">
+  <div class="w-full">
+    <nav id="nav-container" class="flex items-center justify-between h-16 md:h-20 relative transition-all duration-500">
       <!-- Logo -->
-      <a href="#" class="relative z-10 flex items-baseline gap-0.5 group">
-        <span class="text-lg md:text-xl font-extrabold text-white tracking-tight">kucek</span>
-        <span class="text-lg md:text-xl font-extrabold text-kucek-muted tracking-tight">.shoes</span>
+      <a href="#" class="relative z-10 flex items-center gap-0 group">
+        <div class="logo-text font-display text-2xl md:text-3xl text-black tracking-wider italic flex flex-col items-start justify-center transition-all duration-500">
+          <span class="leading-none">KUCEK.</span>
+          <span class="leading-none -mt-2">SHOES</span>
+        </div>
+        <img src={`${import.meta.env.BASE_URL}/ikonkucek.png`} alt="kucek.shoes logo" class="logo-img w-11 h-11 md:w-14 md:h-14 object-contain -ml-2 md:-ml-4 transition-all duration-500" />
       </a>
 
-      <!-- Desktop Nav -->
-      <div class="hidden lg:flex items-center gap-8">
+      <!-- Desktop Nav Links (Centered) -->
+      <div class="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
         {navLinks.map((link) => (
-          <a href={link.href} class="text-sm text-kucek-gray hover:text-white transition-colors duration-300 font-medium">
+          <a href={link.href} class="relative whitespace-nowrap text-base text-black/70 hover:text-black transition-colors duration-300 font-bold group">
             {link.label}
+            <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-black transition-all duration-300 ease-out group-hover:w-full"></span>
           </a>
         ))}
-        <a href={waLink} target="_blank" rel="noopener noreferrer" class="btn-primary !py-2.5 !px-5 !text-sm">
-          Order Sekarang
-        </a>
       </div>
 
-      <!-- Mobile Hamburger -->
-      <button
-        id="mobile-toggle"
-        class="relative z-10 lg:hidden flex flex-col items-center justify-center w-10 h-10 gap-1.5"
-        aria-label="Toggle menu"
-      >
-        <span class="hamburger-line w-6 h-[2px] bg-white transition-all duration-300 origin-center"></span>
-        <span class="hamburger-line w-6 h-[2px] bg-white transition-all duration-300 origin-center"></span>
-        <span class="hamburger-line w-4 h-[2px] bg-white transition-all duration-300 origin-center ml-auto"></span>
-      </button>
+      <!-- Right Side Actions -->
+      <div class="flex items-center relative z-10">
+        <a href={waLink} target="_blank" rel="noopener noreferrer" class="hidden lg:flex btn-primary !bg-black !text-[#FFF200] !py-2.5 !px-6 !rounded-full !text-base hover:!scale-105 transition-transform">
+          Order Sekarang
+        </a>
+
+        <!-- Mobile Hamburger -->
+        <button
+          id="mobile-toggle"
+          class="relative z-50 lg:hidden flex flex-col items-end justify-center w-10 h-10 gap-[6px] group cursor-pointer ml-4"
+          aria-label="Toggle menu"
+        >
+          <span class="hamburger-line w-5 h-[3px] bg-black transition-all duration-300 rounded-full"></span>
+          <span class="hamburger-line w-8 h-[3px] bg-black transition-all duration-300 rounded-full"></span>
+          <span class="hamburger-line w-6 h-[3px] bg-black transition-all duration-300 rounded-full"></span>
+        </button>
+      </div>
     </nav>
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-kucek-black/98 backdrop-blur-xl -translate-x-full transition-transform duration-500 ease-out z-40">
-    <div class="flex flex-col items-center justify-center h-full gap-8">
-      {navLinks.map((link) => (
-        <a href={link.href} class="mobile-link text-2xl font-semibold text-kucek-gray hover:text-white transition-colors duration-300">
+  <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-[#0B0B0B]/98 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] z-40 flex flex-col items-center justify-center px-6">
+    <div class="flex flex-col items-center justify-center w-full gap-8 pt-16">
+      {navLinks.map((link, index) => (
+        <a href={link.href} class="mobile-link text-4xl font-display italic tracking-wider text-white/90 hover:text-[#FFF200] opacity-0 translate-y-8" style={`--i: ${index};`}>
           {link.label}
         </a>
       ))}
-      <a href={waLink} target="_blank" rel="noopener noreferrer" class="btn-primary mt-4">
+      <a href={waLink} target="_blank" rel="noopener noreferrer" class="mobile-link !bg-[#FFF200] !text-black py-3.5 px-10 rounded-full text-xl font-display tracking-wide italic mt-6 opacity-0 translate-y-8 hover:scale-105 shadow-lg shadow-[#FFF200]/20" style={`--i: ${navLinks.length};`}>
         Order Sekarang
       </a>
     </div>
@@ -62,25 +70,59 @@ const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20in
 <style>
   /* Scrolled state */
   #navbar.scrolled {
-    @apply bg-kucek-black/90 backdrop-blur-xl border-b border-white/5;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    @apply bg-[#FFF200] shadow-md max-w-[58rem];
+  }
+  
+  #navbar.scrolled #nav-container {
+    @apply h-14 md:h-16;
+  }
+
+  #navbar.scrolled .logo-text {
+    @apply text-xl md:text-2xl;
+  }
+
+  #navbar.scrolled .logo-img {
+    @apply w-9 h-9 md:w-11 md:h-11;
+  }
+
+  /* Hamburger lines */
+  .hamburger-line {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Hamburger hover */
+  #mobile-toggle:hover .hamburger-line {
+    @apply w-8;
   }
 
   /* Hamburger open state */
+  #mobile-toggle.open .hamburger-line {
+    @apply w-8;
+  }
   #mobile-toggle.open .hamburger-line:nth-child(1) {
-    transform: translateY(5px) rotate(45deg);
+    transform: translateY(9px) rotate(45deg);
   }
   #mobile-toggle.open .hamburger-line:nth-child(2) {
     opacity: 0;
     transform: scaleX(0);
   }
   #mobile-toggle.open .hamburger-line:nth-child(3) {
-    width: 1.5rem;
-    transform: translateY(-5px) rotate(-45deg);
+    transform: translateY(-9px) rotate(-45deg);
   }
 
+  /* Mobile menu open */
   #mobile-menu.open {
-    transform: translateX(0);
+    @apply opacity-100 pointer-events-auto;
+  }
+
+  #mobile-menu.open .mobile-link {
+    @apply opacity-100 translate-y-0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: calc(100ms * var(--i) + 150ms);
+  }
+
+  #mobile-menu:not(.open) .mobile-link {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 </style>
 

@@ -1,61 +1,48 @@
 ---
+import { getImage } from "astro:assets";
+import bgWorker from "../assets/bg-worker.jpg";
+
 const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20ingin%20order%20jasa%20cleaning';
+
+const optimizedBg = await getImage({ src: bgWorker, format: 'webp' });
 ---
 
-<section id="hero" class="relative min-h-screen flex items-center pt-20 pb-16 md:pt-0 md:pb-0 overflow-hidden">
-  <!-- Subtle gradient background -->
-  <div class="absolute inset-0 bg-gradient-to-br from-kucek-black via-kucek-black to-kucek-dark"></div>
-  <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/[0.02] to-transparent"></div>
+<section id="hero" class="relative min-h-screen flex items-center pt-24 pb-16 md:pt-0 md:pb-0 overflow-hidden bg-[#0A0A0A]" style={`background-image: url('${optimizedBg.src}'); background-size: cover; background-position: center;`}>
+  <!-- Dark overlay for text readability, strong vignette, left-to-right fade -->
+  <div class="absolute inset-0 z-0 bg-black/20"></div>
+  <div class="absolute inset-0 z-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/95 to-transparent w-full md:w-3/4"></div>
+  <div class="absolute inset-0 z-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-black/50"></div>
+  <div class="absolute inset-0 z-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.9)]"></div> <!-- Strong vignette -->
 
-  <div class="container-main relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+  <div class="container-main relative z-10 w-full flex items-center">
+    <div class="w-full lg:w-[60%] xl:w-[55%] text-left pt-10 pb-8 lg:py-0">
 
-      <!-- Left: Copy -->
-      <div class="order-2 lg:order-1 text-center lg:text-left">
-        <div class="animate-fade-in">
-          <span class="section-label">Jasa Pembersih Profesional</span>
-        </div>
+      <!-- Headline -->
+      <h1 class="font-display tracking-wide uppercase flex flex-col text-left text-[5.5rem] sm:text-[7.5rem] lg:text-[8.5rem] xl:text-[10rem] leading-[0.85] mb-10 animate-slide-up">
+        <span class="text-white block">BIKIN</span>
+        <span class="text-[#2A2A2A] block -mt-2 sm:-mt-4 lg:-mt-5">KOTOR</span>
+        <span class="text-white block -mt-2 sm:-mt-4 lg:-mt-5">
+          JADI <span class="text-[#FFE600]">BERSIH</span>
+        </span>
+      </h1>
 
-        <h1 class="heading-xl text-white mb-6 animate-slide-up" style="animation-delay: 0.1s;">
-          Bersihkan Aksesoris Favoritmu,
-          <span class="block mt-1">Tampil Seperti</span>
-          <span class="relative inline-block mt-1">
-            Baru Lagi
-            <span class="absolute -bottom-2 left-0 right-0 h-1 bg-white/20 rounded-full"></span>
-          </span>
-        </h1>
+      <!-- Description -->
+      <p class="text-body text-white/80 max-w-[520px] mb-12 animate-slide-up text-lg md:text-xl font-medium leading-relaxed" style="animation-delay: 0.2s;">
+        Cleaning profesional untuk sepatu, tas, topi, dan aksesoris.
+      </p>
 
-        <p class="text-body max-w-xl mx-auto lg:mx-0 mb-8 animate-slide-up" style="animation-delay: 0.2s;">
-          Layanan pembersihan profesional untuk sepatu dan aksesoris
-          dengan hasil rapi, aman, dan teliti.
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-up" style="animation-delay: 0.3s;">
-          <a href={waLink} target="_blank" rel="noopener noreferrer" class="btn-primary">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.913.913l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.326 0-4.48-.748-6.238-2.017l-.436-.327-2.687.9.916-2.719-.351-.457A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-            Pesan Sekarang
-          </a>
-          <a href="#hasil" class="btn-secondary">
-            Lihat Hasil Pengerjaan
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </a>
-        </div>
+      <!-- Buttons -->
+      <div class="flex flex-col sm:flex-row gap-5 lg:gap-6 justify-start animate-slide-up" style="animation-delay: 0.3s;">
+        <a href={waLink} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-[#FFE600] text-black font-bold h-[60px] px-10 rounded-full hover:-translate-y-1 hover:shadow-xl hover:shadow-[#FFE600]/25 transition-all duration-300 text-lg">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.913.913l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.326 0-4.48-.748-6.238-2.017l-.436-.327-2.687.9.916-2.719-.351-.457A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Pesan Sekarang
+        </a>
+        <a href="#hasil" class="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white/20 text-white font-medium h-[60px] px-10 rounded-full hover:bg-white/10 hover:border-white/40 transition-all duration-300 text-lg">
+          Lihat Hasil Kerja
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </a>
       </div>
 
-      <!-- Right: Hero Image -->
-      <div class="order-1 lg:order-2 flex justify-center lg:justify-end animate-fade-in" style="animation-delay: 0.4s;">
-        <div class="relative w-full max-w-lg lg:max-w-xl">
-          <div class="absolute -inset-4 bg-gradient-to-br from-white/5 to-transparent rounded-3xl blur-2xl"></div>
-          <img
-            src={`${import.meta.env.BASE_URL}images/hero-shoe.png`}
-            alt="Proses cleaning sepatu profesional oleh kucek.shoes"
-            class="relative w-full rounded-2xl object-cover shadow-2xl shadow-black/50"
-            loading="eager"
-            width="600"
-            height="600"
-          />
-        </div>
-      </div>
     </div>
   </div>
 
