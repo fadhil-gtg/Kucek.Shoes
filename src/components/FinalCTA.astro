@@ -2,56 +2,52 @@
 const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20ingin%20order%20jasa%20cleaning';
 ---
 
-<section id="cta-final" class="section-space bg-kucek-black relative overflow-hidden">
-  <!-- Decorative gradient -->
-  <div class="absolute inset-0 bg-gradient-to-b from-kucek-darker via-kucek-black to-kucek-black"></div>
+<section id="cta-final" class="py-24 md:py-32 bg-[#0A0A0A]">
+  <div class="container-main max-w-5xl mx-auto px-6">
+    
+    <!-- CTA Card -->
+    <div class="relative bg-[#0B0B0B] border border-[#FFE600]/40 rounded-[24px] p-8 md:p-16 shadow-[0_0_40px_rgba(255,230,0,0.05)] hover:shadow-[0_0_50px_rgba(255,230,0,0.15)] hover:border-[#FFE600]/60 transition-all duration-500 overflow-hidden group">
+      
+      <!-- Subtle glow effect inside -->
+      <div class="absolute inset-0 bg-gradient-to-br from-[#FFE600]/5 to-transparent pointer-events-none transition-opacity duration-500 group-hover:opacity-100 opacity-70"></div>
 
-  <div class="container-main relative z-10">
-    <div class="max-w-3xl mx-auto text-center reveal">
-      <!-- Label -->
-      <span class="section-label">Mulai Sekarang</span>
-
-      <!-- Heading -->
-      <h2 class="heading-lg text-white mb-6">
-        Siap Bikin Aksesorismu Kembali Bersih dan Rapi?
-      </h2>
-
-      <!-- Description -->
-      <p class="text-body max-w-xl mx-auto mb-10">
-        Percayakan ke kucek.shoes dan rasakan hasil cleaning yang maksimal.
-        Hubungi kami sekarang dan dapatkan layanan terbaik.
-      </p>
-
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href={waLink} target="_blank" rel="noopener noreferrer" class="btn-primary text-base">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.913.913l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.326 0-4.48-.748-6.238-2.017l-.436-.327-2.687.9.916-2.719-.351-.457A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Pesan Sekarang via WhatsApp
-        </a>
-        <a href="#layanan" class="btn-secondary text-base">
-          Lihat Layanan Kami
-        </a>
-      </div>
-
-      <!-- Trust badges -->
-      <div class="flex flex-wrap items-center justify-center gap-6 mt-12">
-        <div class="flex items-center gap-2 text-sm text-kucek-muted">
-          <svg class="w-4 h-4 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
-          100% Aman
+      <div class="relative z-10 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-12 mb-16">
+        
+        <!-- Left Content -->
+        <div class="max-w-2xl">
+          <span class="inline-block text-[#FFE600] font-bold text-xs tracking-[0.2em] uppercase mb-6 px-3 py-1.5 rounded-full border border-[#FFE600]/20 bg-[#FFE600]/10">MULAI SEKARANG</span>
+          <h2 class="font-display text-white text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.1] uppercase tracking-wide mb-6">
+            Siap Bikin Sepatu & Aksesorimu Kembali Bersih dan Rapi?
+          </h2>
+          <p class="text-[#A1A1A1] text-lg md:text-xl leading-relaxed">
+            Percayakan pada KUCEK.SHOES dan rasakan hasil cleaning yang rapi, aman, dan profesional.
+          </p>
         </div>
-        <div class="flex items-center gap-2 text-sm text-kucek-muted">
-          <svg class="w-4 h-4 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
-          Rating 4.9/5
-        </div>
-        <div class="flex items-center gap-2 text-sm text-kucek-muted">
-          <svg class="w-4 h-4 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          Proses Cepat
-        </div>
-        <div class="flex items-center gap-2 text-sm text-kucek-muted">
-          <svg class="w-4 h-4 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z"/></svg>
-          Garansi Kepuasan
+
+        <!-- Right Content (Button) -->
+        <div class="shrink-0 w-full lg:w-auto">
+          <a href={waLink} target="_blank" rel="noopener noreferrer" class="inline-flex w-full lg:w-auto items-center justify-center bg-[#FFE600] text-black font-bold uppercase tracking-widest text-sm md:text-base px-10 py-5 rounded-full hover:bg-white hover:scale-105 hover:shadow-[0_0_30px_rgba(255,230,0,0.3)] transition-all duration-300 ease-out text-center">
+            Pesan Sekarang via WhatsApp
+          </a>
         </div>
       </div>
+
+      <!-- Bottom Trust Section -->
+      <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 pt-12 border-t border-white/10">
+        <div class="flex flex-col">
+          <span class="text-[#FFE600] font-display text-4xl md:text-5xl tracking-wide">100+</span>
+          <span class="text-[#A1A1A1] text-xs uppercase tracking-widest font-bold mt-2">Pelanggan Puas</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-[#FFE600] font-display text-4xl md:text-5xl tracking-wide">500+</span>
+          <span class="text-[#A1A1A1] text-xs uppercase tracking-widest font-bold mt-2">Item Dibersihkan</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-[#FFE600] font-display text-4xl md:text-5xl tracking-wide">5+</span>
+          <span class="text-[#A1A1A1] text-xs uppercase tracking-widest font-bold mt-2">Tahun Pengalaman</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
