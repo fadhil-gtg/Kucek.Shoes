@@ -1,119 +1,132 @@
 ---
-const plans = [
+const categories = [
   {
-    name: 'Basic',
-    price: '25K',
-    desc: 'Perawatan ringan untuk sepatu sehari-hari',
-    popular: false,
-    features: [
-      'Regular cleaning upper & sole',
-      'Pembersihan tali sepatu',
-      'Deodorizing',
-      'Estimasi 2-3 hari kerja',
-    ],
-    waMsg: 'Halo kucek.shoes, saya ingin order paket Basic',
+    name: 'CLEANING',
+    services: [
+      { name: 'Deep Clean', price: 'Rp25K', badge: 'PALING DICARI' },
+      { name: 'Fast Clean', price: 'Rp50K' },
+      { name: 'White Shoes', price: 'Rp35K' },
+      { name: 'Girl Shoes', price: 'Rp20K' },
+      { name: 'Kids Shoes', price: 'Rp20K' },
+      { name: 'Sandal', price: 'Rp20K' },
+    ]
   },
   {
-    name: 'Standard',
-    price: '45K',
-    desc: 'Paket terlaris untuk hasil maksimal',
-    popular: true,
-    features: [
-      'Deep cleaning menyeluruh',
-      'Pembersihan tali sepatu',
-      'Unyellowing sole',
-      'Deodorizing',
-      'Conditioning material',
-      'Estimasi 3-4 hari kerja',
-    ],
-    waMsg: 'Halo kucek.shoes, saya ingin order paket Standard',
+    name: 'RESTORATION',
+    services: [
+      { name: 'Unyellowing', price: 'Rp30K', badge: 'HASIL PALING DRAMATIS' },
+      { name: 'Repaint', price: 'Rp75K+', badge: 'RESTORASI TOTAL' },
+      { name: 'Sewing', price: 'Rp40K+' },
+    ]
   },
   {
-    name: 'Premium',
-    price: '75K',
-    desc: 'Layanan terlengkap dengan hasil sempurna',
-    popular: false,
-    features: [
-      'Deep cleaning menyeluruh',
-      'Pembersihan tali sepatu',
-      'Whitening & unyellowing',
-      'Repaint touch-up',
-      'Protection treatment',
-      'Deodorizing premium',
-      'Conditioning material',
-      'Estimasi 4-5 hari kerja',
-    ],
-    waMsg: 'Halo kucek.shoes, saya ingin order paket Premium',
-  },
+    name: 'ACCESSORIES',
+    services: [
+      { name: 'Cap', price: 'Rp20K' },
+      { name: 'Bag', price: 'Rp30K+' },
+      { name: 'Leather Care', price: 'Rp35K' },
+    ]
+  }
 ];
+
+const packages = [
+  { name: 'Paket 5 Pasang', desc: '5 Pasang Deep Clean', originalPrice: 'Rp150K', price: 'Rp140K', savings: 'HEMAT RP10K', popular: false },
+  { name: 'Paket 10 Pasang', desc: '10 Pasang Deep Clean', originalPrice: 'Rp300K', price: 'Rp280K', savings: 'HEMAT RP20K', popular: true },
+  { name: 'Paket 15 Pasang', desc: '15 Pasang Deep Clean', originalPrice: 'Rp450K', price: 'Rp420K', savings: 'HEMAT RP30K', popular: false },
+  { name: 'Paket 20 Pasang', desc: '20 Pasang Deep Clean', originalPrice: 'Rp600K', price: 'Rp560K', savings: 'HEMAT RP40K', popular: false },
+];
+
+const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20ingin%20konsultasi%20layanan';
 ---
 
-<section id="harga" class="section-space bg-kucek-black">
-  <div class="container-main">
+<section id="harga" class="py-24 md:py-32 bg-[#0A0A0A]">
+  <div class="container-main max-w-6xl mx-auto px-6">
     <!-- Header -->
-    <div class="text-center mb-16 reveal">
-      <span class="section-label">Harga</span>
-      <h2 class="heading-lg text-white mb-4">
-        Pilih Paket yang Sesuai
+    <div class="text-left mb-16 md:mb-20">
+      <span class="inline-block text-[#FFE600] font-bold text-sm tracking-[0.2em] uppercase mb-5">HARGA LAYANAN</span>
+      <h2 class="font-display text-white text-[3rem] sm:text-[4.5rem] lg:text-[6rem] leading-[0.9] uppercase tracking-wide mb-6">
+        PILIH LAYANAN<br class="md:hidden" /> YANG SESUAI
       </h2>
-      <p class="text-body max-w-2xl mx-auto">
-        Harga terjangkau untuk hasil cleaning berkualitas tinggi.
-        Pilih paket yang sesuai dengan kebutuhanmu.
+      <p class="text-[#A1A1A1] text-lg md:text-xl max-w-2xl">
+        Layanan spesifik untuk setiap kebutuhan restorasi dan pembersihan item kesayanganmu.
       </p>
     </div>
 
-    <!-- Pricing Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-5 lg:gap-8 max-w-5xl mx-auto items-start">
-      {plans.map((plan, i) => (
-        <div class={`reveal reveal-delay-${i + 1} relative ${plan.popular ? 'md:-mt-4 md:mb-[-16px]' : ''}`}>
-          {/* Popular badge */}
-          {plan.popular && (
-            <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-              <span class="bg-white text-black text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
-                Paling Populer
-              </span>
-            </div>
-          )}
-
-          <div class={`card p-6 md:p-8 flex flex-col h-full ${plan.popular ? 'border-white/20 bg-kucek-surface/50 ring-1 ring-white/10' : ''}`}>
-            <!-- Plan name & price -->
-            <div class="mb-6">
-              <h3 class="text-lg font-bold text-white mb-1">{plan.name}</h3>
-              <p class="text-sm text-kucek-muted mb-4">{plan.desc}</p>
-              <div class="flex items-baseline gap-1">
-                <span class="text-sm text-kucek-muted font-medium">Rp</span>
-                <span class="text-4xl md:text-5xl font-extrabold text-white">{plan.price}</span>
-                <span class="text-sm text-kucek-muted font-medium">/ pasang</span>
-              </div>
-            </div>
-
-            <!-- Divider -->
-            <div class="h-px bg-kucek-border mb-6"></div>
-
-            <!-- Features -->
-            <ul class="space-y-3 mb-8 flex-grow">
-              {plan.features.map((feature) => (
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-white/70 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
-                  </svg>
-                  <span class="text-sm text-kucek-gray">{feature}</span>
-                </li>
-              ))}
-            </ul>
-
-            <!-- CTA -->
-            <a
-              href={`https://wa.me/6281234567890?text=${encodeURIComponent(plan.waMsg)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class={plan.popular ? 'btn-primary w-full' : 'btn-secondary w-full'}
-            >
-              Pilih {plan.name}
-            </a>
-          </div>
+    <!-- Service Menu List -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 mb-24">
+      {categories.map((cat) => (
+        <div class="flex flex-col">
+          <h3 class="font-display text-white/50 text-2xl tracking-widest uppercase mb-6 border-b border-white/10 pb-4">{cat.name}</h3>
+          <ul class="flex flex-col">
+            {cat.services.map((service) => (
+              <li class="group flex items-center justify-between py-4 border-b border-white/5 transition-colors duration-300 hover:border-white/20">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-3">
+                  <span class="text-white/90 text-base md:text-lg group-hover:text-white transition-colors duration-300">{service.name}</span>
+                  {service.badge && (
+                    <span class="inline-block w-fit text-[9px] md:text-[10px] font-bold tracking-widest px-2 py-0.5 rounded bg-white/5 text-white/60 uppercase border border-white/5">
+                      {service.badge}
+                    </span>
+                  )}
+                </div>
+                <span class="text-[#FFE600] font-display text-xl md:text-2xl tracking-wider pl-4 shrink-0 transition-transform duration-300 group-hover:scale-105 group-hover:-translate-x-1">{service.price}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       ))}
     </div>
+
+    <!-- Paket Hemat -->
+    <div class="mt-32 md:mt-40">
+      <div class="text-left mb-12">
+        <span class="inline-block text-[#FFE600] font-bold text-sm tracking-[0.2em] uppercase mb-4">HEMAT HINGGA RP40K</span>
+        <h2 class="font-display text-white text-[2.5rem] md:text-[4rem] uppercase tracking-wide mb-3">PAKET HEMAT</h2>
+        <p class="text-[#A1A1A1] text-lg">Semakin banyak item, semakin hemat.</p>
+      </div>
+
+      <!-- Mobile Scroll Snap Container -->
+      <div class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar md:grid md:grid-cols-4 gap-4 md:gap-6 pb-8 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0 items-center">
+        {packages.map((pkg) => (
+          <div class={`shrink-0 w-[280px] md:w-auto snap-center flex flex-col justify-between bg-[#111111] rounded-[24px] p-8 transition-all duration-300 ${pkg.popular ? 'border border-[#FFE600] md:scale-110 relative shadow-[0_0_30px_rgba(255,230,0,0.1)] z-10' : 'border border-white/5 mt-0 md:mt-4 mb-0 md:mb-4 opacity-70 hover:opacity-100'}`}>
+            {pkg.popular && (
+              <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#FFE600] text-black text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-wider whitespace-nowrap">
+                PALING POPULER
+              </span>
+            )}
+            <div class="flex justify-between items-start mb-6">
+              <div>
+                <h3 class={`font-bold text-xl mb-1 ${pkg.popular ? 'text-white' : 'text-white/90'}`}>{pkg.name}</h3>
+                <p class="text-[#A1A1A1] text-sm">{pkg.desc}</p>
+              </div>
+              <span class="inline-block text-[9px] font-bold tracking-wider px-2 py-1 rounded bg-[#FFE600]/10 text-[#FFE600] border border-[#FFE600]/20 uppercase whitespace-nowrap mt-1">
+                {pkg.savings}
+              </span>
+            </div>
+            <div class="mt-auto">
+              <div class="text-[#A1A1A1] text-sm line-through decoration-1 decoration-white/30 mb-1">{pkg.originalPrice}</div>
+              <div class="text-[#FFE600] font-display text-4xl tracking-wide leading-none">{pkg.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-20">
+      <a href={waLink} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-[#FFE600] text-black font-bold uppercase tracking-widest text-sm md:text-base px-10 py-5 rounded-full hover:bg-white hover:scale-105 hover:shadow-[0_0_30px_rgba(255,230,0,0.3)] transition-all duration-300 ease-out">
+        Konsultasi via WhatsApp &rarr;
+      </a>
+    </div>
   </div>
 </section>
+
+<style>
+  /* Hide scrollbar for mobile scroll snap */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
