@@ -7,12 +7,12 @@ const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20in
 const optimizedBg = await getImage({ src: bgWorker, format: 'webp' });
 ---
 
-<section id="hero" class="relative min-h-screen flex items-center pt-24 pb-16 md:pt-0 md:pb-0 overflow-hidden bg-[#0A0A0A]" style={`background-image: url('${optimizedBg.src}'); background-size: cover; background-position: center;`}>
+<section id="hero" class="relative min-h-screen flex items-center pt-24 pb-16 md:pt-0 md:pb-0 overflow-hidden bg-[#0A0A0A] bg-cover bg-[80%_center] md:bg-center" style={`background-image: url('${optimizedBg.src}');`}>
   <!-- Dark overlay for text readability, strong vignette, left-to-right fade -->
-  <div class="absolute inset-0 z-0 bg-black/20"></div>
-  <div class="absolute inset-0 z-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/95 to-transparent w-full md:w-3/4"></div>
-  <div class="absolute inset-0 z-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-black/50"></div>
-  <div class="absolute inset-0 z-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.9)]"></div> <!-- Strong vignette -->
+  <div class="absolute inset-0 z-0 bg-black/5 md:bg-black/20"></div>
+  <div class="absolute inset-0 z-0 bg-gradient-to-r from-[#0A0A0A]/95 via-[#0A0A0A]/70 to-transparent md:from-[#0A0A0A] md:via-[#0A0A0A]/95 md:to-transparent w-full md:w-3/4"></div>
+  <div class="absolute inset-0 z-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-black/20 md:to-black/50"></div>
+  <div class="absolute inset-0 z-0 shadow-[inset_0_0_80px_rgba(0,0,0,0.5)] md:shadow-[inset_0_0_150px_rgba(0,0,0,0.9)]"></div> <!-- Vignette -->
 
   <div class="container-main relative z-10 w-full flex items-center">
     <div class="w-full lg:w-[60%] xl:w-[55%] text-left pt-10 pb-8 lg:py-0">

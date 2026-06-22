@@ -106,25 +106,17 @@ const services = [
     </div>
 
     <!-- Mobile Stacked Card Layout -->
-    <div class="lg:hidden relative w-full mt-8" style="height: 240vh;">
+    <div class="lg:hidden flex flex-col gap-6 w-full mt-8">
       {services.map((service, index) => (
-        <div 
-          class="absolute w-full"
-          style={`top: ${index * 32}vh; bottom: ${(services.length - 1 - index) * 15}vh; z-index: ${index + 10};`}
-        >
-          <div 
-            class="sticky w-full transition-transform"
-            style={`top: ${90 + (index * 75)}px;`}
-          >
-            <div class="bg-[#111111] border border-white/10 rounded-[24px] p-6 sm:p-8 shadow-[0_-15px_40px_rgba(0,0,0,0.8)] relative overflow-hidden flex flex-col gap-5">
-              <!-- Header Row: Number + Title -->
-              <div class="flex items-center gap-4">
-                <span class="text-[3rem] font-display text-[#FFE600] leading-none">{service.id}</span>
-                <h3 class="text-2xl sm:text-3xl font-display uppercase tracking-wide text-white mt-2 leading-none">{service.title}</h3>
-              </div>
-              <!-- Description -->
-              <p class="text-[#A1A1A1] text-base sm:text-lg leading-relaxed">{service.desc}</p>
+        <div class="mobile-service-card w-full transition-all duration-500 ease-out">
+          <div class="card-inner bg-[#111111] border border-white/5 rounded-[24px] p-6 sm:p-8 shadow-lg overflow-hidden flex flex-col gap-5 transition-colors duration-500">
+            <!-- Header Row: Number + Title -->
+            <div class="flex items-center gap-4">
+              <span class="card-num text-[3rem] font-display text-white/20 leading-none transition-colors duration-500">{service.id}</span>
+              <h3 class="text-2xl sm:text-3xl font-display uppercase tracking-wide text-white mt-2 leading-none">{service.title}</h3>
             </div>
+            <!-- Description -->
+            <p class="text-[#A1A1A1] text-base sm:text-lg leading-relaxed">{service.desc}</p>
           </div>
         </div>
       ))}
@@ -148,6 +140,23 @@ const services = [
   }
   .service-btn.active {
     background-color: rgba(255, 255, 255, 0.02);
+  }
+
+  /* Mobile Card Active State */
+  .mobile-service-card {
+    opacity: 0.4;
+    transform: scale(0.95);
+  }
+  .mobile-service-card.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .mobile-service-card.active .card-inner {
+    border-color: rgba(255, 255, 255, 0.15);
+    background-color: #161616;
+  }
+  .mobile-service-card.active .card-num {
+    color: #FFE600;
   }
 </style>
 
@@ -213,6 +222,24 @@ const services = [
       });
     });
 
+    // Mobile Interaction (Scroll Spy)
+    const mobileCards = document.querySelectorAll('.mobile-service-card');
+    if (mobileCards.length > 0) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          } else {
+            entry.target.classList.remove('active');
+          }
+        });
+      }, {
+        rootMargin: '-35% 0px -35% 0px',
+        threshold: 0
+      });
+
+      mobileCards.forEach(card => observer.observe(card));
+    }
   }
 
   // Initialize on load

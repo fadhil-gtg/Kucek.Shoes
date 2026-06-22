@@ -19,7 +19,7 @@ const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20in
           <span class="leading-none">KUCEK.</span>
           <span class="leading-none -mt-2">SHOES</span>
         </div>
-        <img src={`${import.meta.env.BASE_URL}/ikonkucek.png`} alt="kucek.shoes logo" class="logo-img w-11 h-11 md:w-14 md:h-14 object-contain -ml-2 md:-ml-4 transition-all duration-500" />
+        <img src={`${import.meta.env.BASE_URL}ikonkucek.png`} alt="kucek.shoes logo" class="logo-img w-11 h-11 md:w-14 md:h-14 object-contain -ml-2 md:-ml-4 transition-all duration-500" />
       </a>
 
       <!-- Desktop Nav Links (Centered) -->
@@ -51,21 +51,27 @@ const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20in
       </div>
     </nav>
   </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-[#0B0B0B]/98 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] z-40 flex flex-col items-center justify-center px-6">
-    <div class="flex flex-col items-center justify-center w-full gap-8 pt-16">
-      {navLinks.map((link, index) => (
-        <a href={link.href} class="mobile-link text-4xl font-display italic tracking-wider text-white/90 hover:text-[#FFF200] opacity-0 translate-y-8" style={`--i: ${index};`}>
-          {link.label}
-        </a>
-      ))}
-      <a href={waLink} target="_blank" rel="noopener noreferrer" class="mobile-link !bg-[#FFF200] !text-black py-3.5 px-10 rounded-full text-xl font-display tracking-wide italic mt-6 opacity-0 translate-y-8 hover:scale-105 shadow-lg shadow-[#FFF200]/20" style={`--i: ${navLinks.length};`}>
-        Order Sekarang
-      </a>
-    </div>
-  </div>
 </header>
+
+<!-- Full Screen Mobile Menu Overlay -->
+<div id="mobile-menu" class="lg:hidden fixed inset-0 bg-[#0A0A0A]/95 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-500 ease-in-out z-[100] flex flex-col items-center justify-center px-6">
+  
+  <!-- Close Button -->
+  <button id="mobile-close" class="absolute top-6 right-6 w-12 h-12 flex items-center justify-center text-white/80 hover:text-[#FFE600] transition-colors" aria-label="Close menu">
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
+  </button>
+
+  <div class="flex flex-col items-center justify-center w-full gap-8">
+    {navLinks.map((link, index) => (
+      <a href={link.href} class="mobile-link text-4xl font-display tracking-wider text-white/90 hover:text-[#FFE600] opacity-0 translate-y-8" style={`--i: ${index};`}>
+        {link.label}
+      </a>
+    ))}
+    <a href={waLink} target="_blank" rel="noopener noreferrer" class="mobile-link !bg-[#FFE600] !text-black py-4 px-10 rounded-full text-xl font-bold tracking-wide mt-4 opacity-0 translate-y-8 hover:scale-105 shadow-lg shadow-[#FFE600]/20" style={`--i: ${navLinks.length};`}>
+      ORDER SEKARANG
+    </a>
+  </div>
+</div>
 
 <style>
   /* Scrolled state */
@@ -141,20 +147,26 @@ const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20in
 
   // Mobile menu
   const toggle = document.getElementById('mobile-toggle');
+  const closeBtn = document.getElementById('mobile-close');
   const mobileMenu = document.getElementById('mobile-menu');
 
-  toggle?.addEventListener('click', () => {
-    toggle.classList.toggle('open');
-    mobileMenu?.classList.toggle('open');
-    document.body.style.overflow = mobileMenu?.classList.contains('open') ? 'hidden' : '';
-  });
+  const openMenu = () => {
+    toggle?.classList.add('open');
+    mobileMenu?.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeMenu = () => {
+    toggle?.classList.remove('open');
+    mobileMenu?.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  toggle?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
 
   // Close on link click
   document.querySelectorAll('.mobile-link').forEach((link) => {
-    link.addEventListener('click', () => {
-      toggle?.classList.remove('open');
-      mobileMenu?.classList.remove('open');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', closeMenu);
   });
 </script>
