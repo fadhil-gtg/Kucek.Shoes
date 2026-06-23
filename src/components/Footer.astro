@@ -4,23 +4,27 @@ const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes';
 const igLink = 'https://instagram.com/kucek.shoes';
 ---
 
-<footer class="bg-[#050505] border-t border-white/[0.08]">
-  <div class="container-main max-w-6xl mx-auto px-6 py-20 md:py-24">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12 lg:gap-24">
+<footer class="bg-[#0A0A0A] border-t border-[#FFE600]/15">
+  <div class="container-main max-w-6xl mx-auto px-6 py-16 md:py-24">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20">
       
       <!-- Left: Brand -->
       <div class="flex flex-col">
-        <a href="#" class="inline-block text-3xl font-extrabold text-white tracking-wider uppercase mb-6 font-display">
-          KUCEK<span class="text-[#FFE600]">.SHOES</span>
+        <a href="#" class="flex items-center gap-0 mb-6 group w-fit">
+          <div class="font-display text-3xl md:text-4xl text-[#FFE600] tracking-wider italic flex flex-col items-start justify-center">
+            <span class="leading-none">KUCEK.</span>
+            <span class="leading-none -mt-2">SHOES</span>
+          </div>
+          <img src={`${import.meta.env.BASE_URL}ikonkucek.png`} alt="kucek.shoes logo" class="w-12 h-12 md:w-16 md:h-16 object-contain -ml-2 invert opacity-90 group-hover:opacity-100 transition-opacity" />
         </a>
-        <p class="text-[#A1A1A1] text-base leading-[1.8] mb-8 max-w-sm">
+        <p class="text-[#A1A1A1] text-sm md:text-base leading-[1.8] mb-8 max-w-sm">
           Jasa pembersih sepatu dan aksesoris profesional dengan hasil rapi, aman, dan terpercaya.
         </p>
         <div class="flex items-center gap-5">
-          <a href={igLink} target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-white/40 hover:text-[#FFE600] transition-colors duration-300">
+          <a href={igLink} target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-[#A1A1A1] hover:text-[#FFE600] transition-colors duration-300">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 7.5h.008M12 15a3 3 0 100-6 3 3 0 000 6zM6 6h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V9a3 3 0 013-3z"/></svg>
           </a>
-          <a href={waLink} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="text-white/40 hover:text-[#FFE600] transition-colors duration-300">
+          <a href={waLink} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="text-[#A1A1A1] hover:text-[#FFE600] transition-colors duration-300">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
           </a>
         </div>
@@ -28,58 +32,66 @@ const igLink = 'https://instagram.com/kucek.shoes';
 
       <!-- Middle: Kontak -->
       <div class="flex flex-col">
-        <h4 class="text-sm font-bold text-white uppercase tracking-[0.2em] mb-8">Hubungi Kami</h4>
+        <h4 class="text-xs font-bold text-[#FFE600] uppercase tracking-[0.2em] mb-8">Hubungi Kami</h4>
         <ul class="space-y-6">
           <li class="flex flex-col gap-1.5">
-            <span class="text-[11px] text-[#A1A1A1] uppercase tracking-widest font-bold">WhatsApp</span>
-            <span class="text-white/90 text-base">+62 812 3456 7890</span>
+            <span class="text-[10px] text-[#A1A1A1] uppercase tracking-widest font-bold">WhatsApp</span>
+            <a href={waLink} target="_blank" rel="noopener noreferrer" class="text-white/90 text-sm md:text-base hover:text-[#FFE600] transition-colors w-fit">
+              +62 812 3456 7890
+            </a>
           </li>
           <li class="flex flex-col gap-1.5">
-            <span class="text-[11px] text-[#A1A1A1] uppercase tracking-widest font-bold">Instagram</span>
-            <span class="text-white/90 text-base">@kucek.shoes</span>
+            <span class="text-[10px] text-[#A1A1A1] uppercase tracking-widest font-bold">Instagram</span>
+            <a href={igLink} target="_blank" rel="noopener noreferrer" class="text-white/90 text-sm md:text-base hover:text-[#FFE600] transition-colors w-fit">
+              @kucek.shoes
+            </a>
           </li>
           <li class="flex flex-col gap-1.5">
-            <span class="text-[11px] text-[#A1A1A1] uppercase tracking-widest font-bold">Jam Operasional</span>
-            <span class="text-white/90 text-base leading-relaxed">Senin – Sabtu<br />08.00 – 20.00 WIB</span>
-          </li>
-          <li class="flex flex-col gap-1.5">
-            <span class="text-[11px] text-[#A1A1A1] uppercase tracking-widest font-bold">Lokasi</span>
-            <span class="text-white/90 text-base">Surabaya, Indonesia</span>
+            <span class="text-[10px] text-[#A1A1A1] uppercase tracking-widest font-bold">Jam Operasional</span>
+            <span class="text-white/90 text-sm md:text-base leading-relaxed">
+              Senin – Sabtu<br />08.00 – 20.00 WIB
+            </span>
           </li>
         </ul>
       </div>
 
-      <!-- Right: Trust -->
+      <!-- Right: Lokasi Kami -->
       <div class="flex flex-col">
-        <h4 class="text-sm font-bold text-white uppercase tracking-[0.2em] mb-8">Dipercaya Pelanggan</h4>
-        <div class="flex flex-col gap-8">
-          <div class="flex flex-col">
-            <span class="text-[#FFE600] font-display text-4xl tracking-wide">100+</span>
-            <span class="text-[#A1A1A1] text-xs uppercase tracking-widest font-bold mt-2">Pelanggan Puas</span>
-          </div>
-          <div class="flex flex-col">
-            <span class="text-[#FFE600] font-display text-4xl tracking-wide">500+</span>
-            <span class="text-[#A1A1A1] text-xs uppercase tracking-widest font-bold mt-2">Item Dibersihkan</span>
-          </div>
-          <div class="flex flex-col">
-            <span class="text-[#FFE600] font-display text-4xl tracking-wide">5+</span>
-            <span class="text-[#A1A1A1] text-xs uppercase tracking-widest font-bold mt-2">Tahun Pengalaman</span>
-          </div>
+        <h4 class="text-xs font-bold text-[#FFE600] uppercase tracking-[0.2em] mb-8">Lokasi Kami</h4>
+        
+        <div class="w-full h-[180px] md:h-[220px] rounded-xl overflow-hidden border border-[#FFE600]/20 mb-5 relative group bg-[#111]">
+          <!-- Placeholder map overlay to ensure clickability & styling -->
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126646.20963162261!2d112.64164161741527!3d-7.27561201997457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf8381ac47f%3A0x3039d80b220cb27!2sSurabaya%2C%20Surabaya%20City%2C%20East%20Java!5e0!3m2!1sen!2sid!4v1680000000000!5m2!1sen!2sid" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            class="opacity-60 group-hover:opacity-100 transition-opacity duration-500 filter grayscale contrast-125 group-hover:grayscale-0">
+          </iframe>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <span class="text-white/90 text-sm font-medium flex items-center gap-2">
+            📍 Surabaya, Indonesia
+          </span>
+          <a href="https://maps.google.com/?q=Surabaya" target="_blank" rel="noopener noreferrer" class="text-[#FFE600] text-sm font-medium hover:text-white transition-colors duration-300">
+            Lihat di Google Maps &rarr;
+          </a>
         </div>
       </div>
       
     </div>
   </div>
 
-  <!-- Copyright & CTA bar -->
+  <!-- Copyright -->
   <div class="border-t border-white/[0.05]">
-    <div class="container-main max-w-6xl mx-auto px-6 py-6 md:py-8 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-6">
-      <p class="text-[11px] md:text-xs text-[#A1A1A1] uppercase tracking-wider text-center sm:text-left">
+    <div class="container-main max-w-6xl mx-auto px-6 py-8">
+      <p class="text-[10px] md:text-xs text-[#A1A1A1] uppercase tracking-wider text-center">
         &copy; {currentYear} KUCEK.SHOES &bull; Dibuat untuk memberikan layanan cleaning terbaik.
       </p>
-      <a href={waLink} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-transparent border border-[#FFE600]/40 text-[#FFE600] font-bold uppercase tracking-widest text-[10px] md:text-xs px-5 py-2.5 rounded-full hover:bg-[#FFE600] hover:text-black transition-all duration-300">
-        Pesan via WhatsApp
-      </a>
     </div>
   </div>
 </footer>

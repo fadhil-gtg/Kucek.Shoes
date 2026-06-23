@@ -10,11 +10,11 @@ const navLinks = [
 const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20ingin%20order%20jasa%20cleaning';
 ---
 
-<header id="navbar" class="fixed top-4 left-4 right-4 lg:left-1/2 lg:-translate-x-1/2 lg:w-[calc(100%-2rem)] max-w-6xl z-50 transition-all duration-500 bg-[#FFF200]/90 backdrop-blur-md rounded-full shadow-none px-6 md:px-8">
+<header id="navbar" class="fixed top-4 left-4 right-4 lg:left-1/2 lg:-translate-x-1/2 lg:w-[calc(100%-2rem)] max-w-6xl z-50 transition-all duration-500 bg-[#FFF200]/90 backdrop-blur-md rounded-full shadow-none px-6 md:px-8 nav-animate-container">
   <div class="w-full">
     <nav id="nav-container" class="flex items-center justify-between h-16 md:h-20 relative transition-all duration-500">
       <!-- Logo -->
-      <a href="#" class="relative z-10 flex items-center gap-0 group">
+      <a href="#" class="relative z-10 flex items-center gap-0 group nav-animate-logo">
         <div class="logo-text font-display text-2xl md:text-3xl text-black tracking-wider italic flex flex-col items-start justify-center transition-all duration-500">
           <span class="leading-none">KUCEK.</span>
           <span class="leading-none -mt-2">SHOES</span>
@@ -24,8 +24,8 @@ const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20in
 
       <!-- Desktop Nav Links (Centered) -->
       <div class="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-        {navLinks.map((link) => (
-          <a href={link.href} class="relative whitespace-nowrap text-base text-black/70 hover:text-black transition-colors duration-300 font-bold group">
+        {navLinks.map((link, index) => (
+          <a href={link.href} class="nav-animate-item relative whitespace-nowrap text-base text-black/70 hover:text-black transition-colors duration-300 font-bold group" style={`animation-delay: ${200 + index * 40}ms;`}>
             {link.label}
             <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-black transition-all duration-300 ease-out group-hover:w-full"></span>
           </a>
@@ -33,7 +33,7 @@ const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20in
       </div>
 
       <!-- Right Side Actions -->
-      <div class="flex items-center relative z-10">
+      <div class="flex items-center relative z-10 nav-animate-action">
         <a href={waLink} target="_blank" rel="noopener noreferrer" class="hidden lg:flex btn-primary !bg-black !text-[#FFF200] !py-2.5 !px-6 !rounded-full !text-base hover:!scale-105 transition-transform">
           Order Sekarang
         </a>
@@ -74,6 +74,46 @@ const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20in
 </div>
 
 <style>
+  /* Entrance Animations */
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes navEntranceMobile {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes navEntranceDesktop {
+      0% { opacity: 0; transform: translate(-50%, -20px); }
+      100% { opacity: 1; transform: translate(-50%, 0); }
+    }
+    @keyframes navItemFadeUp {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .nav-animate-container {
+      animation: navEntranceMobile 400ms ease-out backwards;
+    }
+    @media (min-width: 1024px) {
+      .nav-animate-container {
+        animation: navEntranceDesktop 400ms ease-out backwards;
+      }
+    }
+
+    .nav-animate-logo {
+      animation: navItemFadeUp 300ms ease-out 150ms backwards;
+    }
+
+    .nav-animate-item {
+      animation-name: navItemFadeUp;
+      animation-duration: 300ms;
+      animation-timing-function: ease-out;
+      animation-fill-mode: backwards;
+    }
+
+    .nav-animate-action {
+      animation: navItemFadeUp 300ms ease-out 350ms backwards;
+    }
+  }
+
   /* Scrolled state */
   #navbar.scrolled {
     @apply bg-[#FFF200] shadow-md max-w-[58rem];

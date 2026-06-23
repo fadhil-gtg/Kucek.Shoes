@@ -2,52 +2,69 @@
 const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20ingin%20order%20jasa%20cleaning';
 ---
 
-<section id="cta-final" class="py-24 md:py-32 bg-[#0A0A0A]">
-  <div class="container-main max-w-5xl mx-auto px-6">
+<section id="cta-final" class="pt-16 pb-12 md:pt-24 md:pb-16 bg-[radial-gradient(circle_at_center,_#1c1c1c_0%,_#000000_100%)] relative flex flex-col items-center">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,230,0,0.06)_0%,transparent_60%)] pointer-events-none"></div>
+  <div class="container-main max-w-5xl mx-auto px-6 relative z-10 text-center">
     
-    <!-- CTA Card -->
-    <div class="relative bg-[#0B0B0B] border border-[#FFE600]/40 rounded-[24px] p-8 md:p-16 shadow-[0_0_40px_rgba(255,230,0,0.05)] hover:shadow-[0_0_50px_rgba(255,230,0,0.15)] hover:border-[#FFE600]/60 transition-all duration-500 overflow-hidden group">
-      
-      <!-- Subtle glow effect inside -->
-      <div class="absolute inset-0 bg-gradient-to-br from-[#FFE600]/5 to-transparent pointer-events-none transition-opacity duration-500 group-hover:opacity-100 opacity-70"></div>
+    <span class="inline-flex items-center gap-2 text-[#FFE600] font-bold text-xs tracking-[0.2em] uppercase mb-6 px-4 py-2 rounded-full border border-[#FFE600]/40 bg-[#FFE600]/10 shadow-[0_0_20px_rgba(255,230,0,0.15)]">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      MULAI SEKARANG
+    </span>
+    
+    <h2 class="font-display text-white text-[2.5rem] md:text-[4rem] leading-[1.1] uppercase tracking-wide mb-6 mx-auto max-w-3xl">
+      Siap Bikin Sepatu & Aksesorimu Kembali <span class="text-[#FFE600]">Bersih</span> dan <span class="text-[#FFE600]">Rapi</span>?
+    </h2>
+    
+    <p class="text-[#A1A1A1] text-lg md:text-xl leading-relaxed mb-10 mx-auto max-w-2xl">
+      Percayakan pada KUCEK.SHOES dan rasakan hasil cleaning yang rapi, aman, dan profesional.
+    </p>
 
-      <div class="relative z-10 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-12 mb-16">
-        
-        <!-- Left Content -->
-        <div class="max-w-2xl">
-          <span class="inline-block text-[#FFE600] font-bold text-xs tracking-[0.2em] uppercase mb-6 px-3 py-1.5 rounded-full border border-[#FFE600]/20 bg-[#FFE600]/10">MULAI SEKARANG</span>
-          <h2 class="font-display text-white text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.1] uppercase tracking-wide mb-6">
-            Siap Bikin Sepatu & Aksesorimu Kembali Bersih dan Rapi?
-          </h2>
-          <p class="text-[#A1A1A1] text-lg md:text-xl leading-relaxed">
-            Percayakan pada KUCEK.SHOES dan rasakan hasil cleaning yang rapi, aman, dan profesional.
-          </p>
+    <div class="flex flex-col items-center justify-center mb-12 md:mb-16">
+      <a href={waLink} target="_blank" rel="noopener noreferrer" class="inline-flex w-full sm:w-auto items-center justify-center bg-[#FFE600] text-black font-bold uppercase tracking-widest text-sm md:text-base px-10 py-5 rounded-full shadow-[0_0_40px_rgba(255,230,0,0.15)] hover:bg-white hover:scale-105 hover:-translate-y-0.5 hover:shadow-[0_0_50px_rgba(255,230,0,0.25)] transition-all duration-300 ease-out">
+        Pesan Sekarang via WhatsApp
+      </a>
+
+      <!-- Trust Signals -->
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-[#A1A1A1] text-xs md:text-sm font-medium mt-6">
+        <div class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-[#FFE600]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          Rating 4.9/5
         </div>
-
-        <!-- Right Content (Button) -->
-        <div class="shrink-0 w-full lg:w-auto">
-          <a href={waLink} target="_blank" rel="noopener noreferrer" class="inline-flex w-full lg:w-auto items-center justify-center bg-[#FFE600] text-black font-bold uppercase tracking-widest text-sm md:text-base px-10 py-5 rounded-full hover:bg-white hover:scale-105 hover:shadow-[0_0_30px_rgba(255,230,0,0.3)] transition-all duration-300 ease-out text-center">
-            Pesan Sekarang via WhatsApp
-          </a>
+        <div class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-[#FFE600]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          100+ Pelanggan Puas
+        </div>
+        <div class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-[#FFE600]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          Aman untuk Semua Material
+        </div>
+        <div class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-[#FFE600]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          Garansi Kepuasan
         </div>
       </div>
+    </div>
 
-      <!-- Bottom Trust Section -->
-      <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 pt-12 border-t border-white/10">
-        <div class="flex flex-col">
-          <span class="text-[#FFE600] font-display text-4xl md:text-5xl tracking-wide">100+</span>
-          <span class="text-[#A1A1A1] text-xs uppercase tracking-widest font-bold mt-2">Pelanggan Puas</span>
-        </div>
-        <div class="flex flex-col">
-          <span class="text-[#FFE600] font-display text-4xl md:text-5xl tracking-wide">500+</span>
-          <span class="text-[#A1A1A1] text-xs uppercase tracking-widest font-bold mt-2">Item Dibersihkan</span>
-        </div>
-        <div class="flex flex-col">
-          <span class="text-[#FFE600] font-display text-4xl md:text-5xl tracking-wide">5+</span>
-          <span class="text-[#A1A1A1] text-xs uppercase tracking-widest font-bold mt-2">Tahun Pengalaman</span>
-        </div>
+    <!-- Bottom Trust Section -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full max-w-4xl mx-auto">
+      <div class="flex flex-col items-center bg-[#161616]/80 backdrop-blur-sm border border-[#FFE600]/20 rounded-2xl p-5 md:p-6 hover:scale-[1.02] hover:border-[#FFE600]/40 hover:shadow-[0_0_30px_rgba(255,230,0,0.1)] transition-all duration-300">
+        <svg class="w-6 h-6 text-[#FFE600] mb-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <span class="text-[#FFE600] font-display text-3xl md:text-4xl tracking-wide">100+</span>
+        <span class="text-[#A1A1A1] text-[10px] md:text-xs uppercase tracking-widest font-bold mt-2">Pelanggan Puas</span>
       </div>
-
+      <div class="flex flex-col items-center bg-[#161616]/80 backdrop-blur-sm border border-[#FFE600]/20 rounded-2xl p-5 md:p-6 hover:scale-[1.02] hover:border-[#FFE600]/40 hover:shadow-[0_0_30px_rgba(255,230,0,0.1)] transition-all duration-300">
+        <svg class="w-6 h-6 text-[#FFE600] mb-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+        <span class="text-[#FFE600] font-display text-3xl md:text-4xl tracking-wide">500+</span>
+        <span class="text-[#A1A1A1] text-[10px] md:text-xs uppercase tracking-widest font-bold mt-2">Item Dibersihkan</span>
+      </div>
+      <div class="flex flex-col items-center bg-[#161616]/80 backdrop-blur-sm border border-[#FFE600]/20 rounded-2xl p-5 md:p-6 hover:scale-[1.02] hover:border-[#FFE600]/40 hover:shadow-[0_0_30px_rgba(255,230,0,0.1)] transition-all duration-300">
+        <svg class="w-6 h-6 text-[#FFE600] mb-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+        <span class="text-[#FFE600] font-display text-3xl md:text-4xl tracking-wide">5+</span>
+        <span class="text-[#A1A1A1] text-[10px] md:text-xs uppercase tracking-widest font-bold mt-2">Tahun Pengalaman</span>
+      </div>
     </div>
   </div>
+
+  <!-- Accent Line Separator -->
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[160px] h-[1px] bg-gradient-to-r from-transparent via-[#FFE600] to-transparent opacity-80"></div>
 </section>
