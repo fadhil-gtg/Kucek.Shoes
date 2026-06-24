@@ -2,8 +2,8 @@
 const steps = [
   {
     num: '01',
-    title: 'KIRIM FOTO ITEM',
-    desc: 'Kirim foto item melalui WhatsApp agar kami bisa mengecek kondisi dan kebutuhan treatment.',
+    title: 'DATANGI WORKSHOP KAMI',
+    desc: 'Datang langsung ke workshop KUCEK.SHOES dan konsultasikan kebutuhan cleaning atau treatment itemmu.',
   },
   {
     num: '02',
@@ -22,17 +22,16 @@ const steps = [
   },
 ];
 
-const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20ingin%20konsultasi';
 ---
 
 <section id="cara-kerja" class="py-24 md:py-32 bg-[#0A0A0A]">
-  <div class="container-main max-w-7xl mx-auto">
+  <div class="container-main max-w-7xl mx-auto px-6">
     <!-- Header -->
-    <div class="text-left mb-16 md:mb-24">
+    <div class="text-left mb-16 md:mb-24 fade-up-el">
       <span class="inline-block text-[#FFE600] font-bold text-sm tracking-[0.2em] uppercase mb-5">CARA KERJA</span>
       <h2 class="font-display text-white text-[3.5rem] sm:text-[5rem] lg:text-[7rem] leading-[0.9] uppercase tracking-wide mb-8">
-        <span class="block">SEMUDAH INI</span>
-        <span class="block text-white/70">MEMBUAT ITEMMU</span>
+        <span class="block">CUMA 4 LANGKAH</span>
+        <span class="block text-white/70">MENUJU ITEM YANG</span>
         <span class="block">KINCLONG LAGI</span>
       </h2>
       <p class="text-[#A1A1A1] text-lg md:text-xl max-w-2xl">
@@ -43,22 +42,27 @@ const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20in
     <!-- Steps -->
     <div class="relative w-full mt-10 md:mt-20">
       <!-- Desktop Connecting Line -->
-      <div class="hidden lg:block absolute top-[3rem] left-[12%] right-[12%] h-[1px] bg-gradient-to-r from-transparent via-[#FFE600]/30 to-transparent"></div>
+      <div class="hidden lg:block absolute top-[3rem] left-[12%] right-[12%] h-[1px] bg-white/10"></div>
 
-      <!-- Mobile Connecting Line -->
-      <div class="lg:hidden absolute top-8 bottom-8 left-10 w-[1px] bg-gradient-to-b from-transparent via-[#FFE600]/30 to-transparent"></div>
+      <!-- Mobile Connecting Line Base -->
+      <div class="lg:hidden absolute top-[4rem] bottom-[4rem] left-[38px] w-[2px] bg-white/10"></div>
+      
+      <!-- Mobile Connecting Line Progress -->
+      <div id="mobile-progress-line" class="lg:hidden absolute top-[4rem] left-[38px] w-[2px] bg-[#FFE600] transition-all duration-[800ms] ease-out origin-top" style="height: 0%;"></div>
 
       <div class="flex flex-col lg:grid lg:grid-cols-4 gap-16 lg:gap-8">
         {steps.map((step, i) => (
-          <div class="group relative flex lg:flex-col items-start lg:items-center text-left lg:text-center gap-8 lg:gap-0">
+          <div class="step-item fade-up-el group relative flex lg:flex-col items-start lg:items-center text-left lg:text-center gap-8 lg:gap-0" data-index={i}>
             <!-- Number -->
             <div class="relative z-10 shrink-0 w-20 text-center bg-[#0A0A0A] lg:w-auto lg:px-8 lg:mb-10 transition-transform duration-500 ease-out group-hover:scale-110">
-              <span class="font-display text-[4.5rem] lg:text-[6rem] leading-none text-[#FFE600]/60 group-hover:text-[#FFE600] transition-colors duration-500">{step.num}</span>
+              <span class="step-num font-display text-[4.5rem] lg:text-[6rem] leading-none text-white/20 transition-colors duration-700 ease-out">
+                {step.num}
+              </span>
             </div>
 
             <!-- Content -->
             <div class="flex flex-col justify-start pt-2 lg:pt-0">
-              <h3 class="font-display text-2xl lg:text-3xl text-white uppercase tracking-wide mb-4 transition-transform duration-500 ease-out group-hover:-translate-y-[3px]">
+              <h3 class="font-display text-2xl lg:text-3xl text-white uppercase tracking-wide mb-4 transition-transform duration-500 ease-out lg:group-hover:-translate-y-[3px]">
                 {step.title}
               </h3>
               <p class="text-[#A1A1A1] leading-relaxed text-base lg:text-lg">
@@ -70,11 +74,103 @@ const waLink = 'https://wa.me/6281234567890?text=Halo%20kucek.shoes,%20saya%20in
       </div>
     </div>
 
-    <!-- CTA -->
-    <div class="text-center mt-20 md:mt-24">
-      <a href={waLink} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-[#FFE600] text-black font-bold uppercase tracking-widest text-sm md:text-base px-10 py-5 rounded-full hover:bg-white hover:scale-105 hover:shadow-[0_0_30px_rgba(255,230,0,0.3)] transition-all duration-300 ease-out">
-        MULAI DARI WHATSAPP &rarr;
-      </a>
-    </div>
+
   </div>
 </section>
+
+<style>
+  /* Fade up base styles */
+  .fade-up-el {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .fade-up-el.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Active step styling */
+  .step-item.is-active .step-num {
+    color: #FFE600;
+  }
+  
+  /* Desktop hover states overridden on mobile active */
+  @media (hover: hover) {
+    .step-item:hover .step-num {
+      color: #FFE600;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Fade up animation for elements (Desktop & Mobile)
+    const fadeEls = document.querySelectorAll('.fade-up-el');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '0px',
+      threshold: 0.15
+    });
+
+    fadeEls.forEach((el, index) => {
+      // Optional stagger effect
+      el.style.transitionDelay = `${index * 100}ms`;
+      fadeObserver.observe(el);
+    });
+
+    // 2. Mobile Progress Line & Active Step Logic
+    const steps = document.querySelectorAll('.step-item');
+    const progressLine = document.getElementById('mobile-progress-line');
+    
+    // Track highest active index to prevent line from going backwards if we don't want it to
+    // But going backwards is fine too!
+    
+    const stepObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-active');
+          updateMobileProgress();
+        } else {
+          // Optional: remove is-active if you want it to revert when scrolling up
+          // entry.target.classList.remove('is-active');
+          // updateMobileProgress();
+        }
+      });
+    }, {
+      rootMargin: '-30% 0px -40% 0px', // Triggers when step reaches middle of screen
+      threshold: 0
+    });
+
+    steps.forEach(step => stepObserver.observe(step));
+
+    function updateMobileProgress() {
+      if (!progressLine || window.innerWidth >= 1024) return; // Only run on mobile/tablet
+      
+      const activeSteps = document.querySelectorAll('.step-item.is-active');
+      if (activeSteps.length === 0) return;
+      
+      const totalSteps = steps.length;
+      // Calculate percentage based on how many steps are active.
+      // If 1 is active -> 0% height
+      // If 2 are active -> 33% height
+      // If 3 are active -> 66% height
+      // If 4 are active -> 100% height
+      let percentage = ((activeSteps.length - 1) / (totalSteps - 1)) * 100;
+      
+      // Ensure percentage is bounded
+      percentage = Math.max(0, Math.min(100, percentage));
+      
+      progressLine.style.height = `${percentage}%`;
+    }
+    
+    // Initial check on load
+    updateMobileProgress();
+  });
+</script>

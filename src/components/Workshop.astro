@@ -1,0 +1,71 @@
+---
+const workshopImages = [
+  "/gambar-workshop/kiriatas1.png",
+  "/gambar-workshop/kananatas2.jpeg",
+  "/gambar-workshop/kiribawah3.png",
+  "/gambar-workshop/kananbawah4.png"
+];
+---
+
+<section id="workshop" class="py-24 md:py-32 bg-[#0A0A0A] overflow-hidden">
+  <div class="container-main max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 xl:gap-16 items-center">
+      
+      <!-- Left Content -->
+      <div class="lg:col-span-7 flex flex-col text-left">
+        <div class="mb-8">
+          <span class="inline-block text-[#FFE600] font-bold text-sm tracking-[0.2em] uppercase mb-5">
+            WORKSHOP KAMI
+          </span>
+          <h2 class="font-display text-white text-[3rem] sm:text-[4rem] lg:text-[4.5rem] xl:text-[5rem] leading-[0.9] uppercase tracking-tight">
+            TEMPAT DI MANA SEPATU DAN<br class="hidden lg:block"/> AKSESORIS KEMBALI BERSIH
+          </h2>
+        </div>
+        
+        <p class="text-[#A1A1A1] text-lg leading-relaxed mb-10 max-w-xl">
+          Setiap item ditangani langsung di workshop KUCEK.SHOES dengan proses cleaning yang aman, teliti, dan profesional. Dari sepatu harian hingga koleksi favorit pelanggan.
+        </p>
+
+        <ul class="space-y-6">
+          {[
+            "Workshop aktif setiap hari",
+            "Proses pengerjaan detail dan aman",
+            "Ratusan item telah ditangani"
+          ].map((point) => (
+            <li class="flex items-center gap-4 text-white/90 text-lg">
+              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[#FFE600]/20 flex items-center justify-center text-[#FFE600] font-bold text-sm">
+                ✓
+              </span>
+              {point}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Right Gallery -->
+      <div class="lg:col-span-5 grid grid-cols-2 gap-4 md:gap-5 mt-10 lg:mt-0">
+        <div class="flex flex-col gap-4 md:gap-5 pt-0 lg:pt-10">
+          <div class="group relative rounded-[20px] overflow-hidden border border-[#FFE600]/10 hover:border-[#FFE600]/50 transition-colors duration-500 bg-[#111]">
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
+            <img src={workshopImages[0]} alt="Workshop view" class="w-full h-32 md:h-48 object-cover group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" />
+          </div>
+          <div class="group relative rounded-[20px] overflow-hidden border border-[#FFE600]/10 hover:border-[#FFE600]/50 transition-colors duration-500 bg-[#111]">
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
+            <img src={workshopImages[2]} alt="Cleaning process" class="w-full h-48 md:h-64 object-cover group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" />
+          </div>
+        </div>
+        <div class="flex flex-col gap-4 md:gap-5">
+          <div class="group relative rounded-[20px] overflow-hidden border border-[#FFE600]/10 hover:border-[#FFE600]/50 transition-colors duration-500 bg-[#111]">
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
+            <img src={workshopImages[1]} alt="Shoe rack" class="w-full h-48 md:h-64 object-cover group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" />
+          </div>
+          <div class="group relative rounded-[20px] overflow-hidden border border-[#FFE600]/10 hover:border-[#FFE600]/50 transition-colors duration-500 bg-[#111]">
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
+            <img src={workshopImages[3]} alt="Details cleaning" class="w-full h-32 md:h-48 object-cover group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
