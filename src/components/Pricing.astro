@@ -1,109 +1,302 @@
 ---
 const categories = [
   {
-    name: 'CLEANING',
+    name: 'SHOES CLEANING',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a3 3 0 0 0 -3 3v1h-1a2 2 0 0 0 -2 2v2a2 2 0 0 0 2 2h1v1h6v-1h1a2 2 0 0 0 2 -2v-2a2 2 0 0 0 -2 -2h-1v-1a3 3 0 0 0 -3 -3z" /><path d="M14 11h.01" /><path d="M12 16v4" /><path d="M8 20h8" /></svg>`,
+    desc: 'Pembersihan menyeluruh untuk berbagai jenis material dan kondisi sepatu.',
     services: [
-      { name: 'Deep Clean', price: 'Rp25K', badge: 'PALING DICARI' },
-      { name: 'Fast Clean', price: 'Rp50K' },
+      { name: 'Fast Clean', price: 'Rp25K' },
+      { name: 'Deep Clean', price: 'Rp30K' },
       { name: 'White Shoes', price: 'Rp35K' },
-      { name: 'Girl Shoes', price: 'Rp20K' },
-      { name: 'Kids Shoes', price: 'Rp20K' },
-      { name: 'Sandal', price: 'Rp20K' },
+      { name: 'Kids Shoes / Sandals', price: 'Rp20K' },
+      { name: 'Hiking Boots', price: 'Rp35K' },
+      { name: 'Suede Treatment', price: 'Rp35K' },
+    ],
+    estimates: [
+      { name: 'Fast Clean', time: '24 Jam' },
+      { name: 'Deep Clean', time: '3-4 Hari' },
+      { name: 'White Shoes', time: '3-5 Hari' },
+      { name: 'Suede Treatment', time: '3-4 Hari' },
+      { name: 'Hiking Boots', time: '3-4 Hari' },
+      { name: 'Kids Shoes / Sandals', time: '3-4 Hari' },
     ]
   },
   {
-    name: 'RESTORATION',
+    name: 'REPAIR & RESTORATION',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5" /></svg>`,
+    desc: 'Perbaikan struktur dan tampilan item agar kembali rapi, kuat, dan layak digunakan.',
     services: [
-      { name: 'Unyellowing', price: 'Rp30K', badge: 'HASIL PALING DRAMATIS' },
-      { name: 'Repaint', price: 'Rp75K+', badge: 'RESTORASI TOTAL' },
-      { name: 'Sewing', price: 'Rp40K+' },
-    ]
+      { name: 'Unyellowing', price: 'Rp30K', time: '4-7 Hari' },
+      { name: 'Repaint', price: 'Rp75K–120K', time: '4-7 Hari', badge: 'RESTORASI TOTAL' },
+      { name: 'Sewing', price: 'Rp40K–50K', time: '2-3 Hari' },
+      { name: 'Reglue', price: 'Rp40K–50K', time: '3-4 Hari' },
+      { name: 'Reglue Full', price: 'Rp80K–100K', time: '5-7 Hari' },
+      { name: 'Dempul Crack', price: 'Rp15K', time: '3 Hari' },
+      { name: 'Velcro Repair', price: 'Rp20K–50K', time: '3-4 Hari' },
+      { name: 'Resleting Repair', price: 'Rp20K–40K', time: '3-4 Hari' },
+      { name: 'Swap Sole', price: 'Mulai Rp50K', time: '5-7 Hari' },
+    ],
   },
   {
-    name: 'ACCESSORIES',
+    name: 'ACCESSORIES & LEATHER',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" /><path d="M12 12l0 .01" /><path d="M3 13a20 20 0 0 0 18 0" /></svg>`,
+    desc: 'Perawatan khusus untuk bahan kulit, tas, dan topi agar tetap bersih dan awet.',
     services: [
-      { name: 'Cap', price: 'Rp20K' },
-      { name: 'Bag', price: 'Rp30K+' },
       { name: 'Leather Care', price: 'Rp35K' },
+      { name: 'Cap', price: 'Rp25K' },
+      { name: 'Bag S', price: 'Rp30K' },
+      { name: 'Bag M', price: 'Rp45K' },
+      { name: 'Bag L', price: 'Rp60K' },
+    ],
+    estimates: [
+      { name: 'Leather Care', time: '4-5 Hari' },
+      { name: 'Cap Cleaning', time: '2-4 Hari' },
+      { name: 'Bag Cleaning', time: '3-4 Hari' },
+    ],
+    benefits: [
+      'Sudah termasuk leather balm',
+      'Treatment sesuai material',
+      'Menjaga warna & kualitas item',
     ]
   }
 ];
 
+const homeCare = {
+  name: 'HOME CARE',
+  icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 11a2 2 0 0 1 2 2v2h10v-2a2 2 0 1 1 4 0v4a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-4a2 2 0 0 1 2 -2z" /><path d="M5 11v-5a3 3 0 0 1 3 -3h8a3 3 0 0 1 3 3v5" /><path d="M6 19v2" /><path d="M18 19v2" /></svg>`,
+  desc: 'Layanan pembersihan profesional untuk sofa, kasur, dan karpet di rumah.',
+  groups: [
+    {
+      title: 'SOFA',
+      estimate: 'Estimasi: 3-4 Jam',
+      note: 'Harga cuci sofa dihitung per dudukan',
+      services: [
+        { name: 'Sofa Kantor', price: 'Rp35K' },
+        { name: 'Sofa Kecil', price: 'Rp40K' },
+        { name: 'Sofa Sedang', price: 'Rp50K' },
+        { name: 'Sofabed Sedang', price: 'Rp60K' },
+        { name: 'Sofabed Panjang', price: 'Rp100K' },
+      ]
+    },
+    {
+      title: 'KASUR (WET CLEANING)',
+      estimate: 'Estimasi: 3-5 Jam',
+      note: 'Khusus bahan latex dikenakan biaya tambahan Rp30.000',
+      services: [
+        { name: '100x200', price: 'Rp140K' },
+        { name: '120x200', price: 'Rp175K' },
+        { name: '160x200', price: 'Rp200K' },
+        { name: '180x200', price: 'Rp225K' },
+        { name: '200x200', price: 'Rp250K' },
+      ]
+    },
+    {
+      title: 'KASUR (DRY CLEANING)',
+      estimate: 'Estimasi: 3-4 Jam',
+      note: 'Hanya sedot debu dan pemberian pengharum',
+      services: [
+        { name: '100x200', price: 'Rp70K' },
+        { name: '120x200', price: 'Rp90K' },
+        { name: '160x200', price: 'Rp110K' },
+        { name: '180x200', price: 'Rp130K' },
+        { name: '200x200', price: 'Rp150K' },
+      ]
+    },
+    {
+      title: 'KARPET',
+      estimate: 'Estimasi: 2-4 Jam',
+      note: 'Untuk karpet berbahan serat kain',
+      services: [
+        { name: 'Karpet', price: 'Rp15K/m²' },
+      ],
+      benefits: [
+        'Pelayanan yang baik',
+        'Hasil yang maksimal',
+        'Fasilitas alat lengkap',
+        'Bahan full premium',
+      ]
+    }
+  ]
+};
+
 const packages = [
-  { name: 'Paket 5 Pasang', desc: '5 Pasang Deep Clean', originalPrice: 'Rp150K', price: 'Rp140K', savings: 'HEMAT RP10K', popular: false },
-  { name: 'Paket 10 Pasang', desc: '10 Pasang Deep Clean', originalPrice: 'Rp300K', price: 'Rp280K', savings: 'HEMAT RP20K', popular: true },
-  { name: 'Paket 15 Pasang', desc: '15 Pasang Deep Clean', originalPrice: 'Rp450K', price: 'Rp420K', savings: 'HEMAT RP30K', popular: false },
-  { name: 'Paket 20 Pasang', desc: '20 Pasang Deep Clean', originalPrice: 'Rp600K', price: 'Rp560K', savings: 'HEMAT RP40K', popular: false },
+  { name: '5 Pasang', originalPrice: 'Rp150K', price: 'Rp140K', savings: 'HEMAT RP10K', popular: false },
+  { name: '10 Pasang', originalPrice: 'Rp300K', price: 'Rp280K', savings: 'HEMAT RP20K', popular: true },
+  { name: '15 Pasang', originalPrice: 'Rp450K', price: 'Rp420K', savings: 'HEMAT RP30K', popular: false },
+  { name: '20 Pasang', originalPrice: 'Rp600K', price: 'Rp560K', savings: 'HEMAT RP40K', popular: false },
 ];
 
 const waLink = 'https://wa.me/6282232725242?text=Halo%20kucek.shoes,%20saya%20ingin%20konsultasi%20layanan';
 ---
 
-<section id="harga" class="py-24 md:py-32 bg-[#0A0A0A]">
-  <div class="container-main max-w-6xl mx-auto px-6">
+<section id="harga" class="py-24 md:py-32 bg-[#0A0A0A] overflow-hidden">
+  <div class="container-main max-w-7xl mx-auto px-6">
+    
     <!-- Header -->
-    <div class="text-left mb-16 md:mb-20">
-      <span class="inline-block text-[#FFE600] font-bold text-sm tracking-[0.2em] uppercase mb-5">HARGA LAYANAN</span>
-      <h2 class="font-display text-white text-[3rem] sm:text-[4.5rem] lg:text-[6rem] leading-[0.9] uppercase tracking-wide mb-6">
-        PILIH LAYANAN<br class="md:hidden" /> YANG SESUAI
+    <div class="text-left mb-16 md:mb-20 animate-fade-in">
+      <span class="inline-block text-[#FFE600] font-bold text-sm tracking-[0.2em] uppercase mb-4 border border-[#FFE600]/30 bg-[#FFE600]/10 px-4 py-1.5 rounded-full">
+        Solusi Lengkap Perawatan Item
+      </span>
+      <h2 class="font-display text-white text-[3rem] sm:text-[4.5rem] lg:text-[5rem] leading-[0.9] uppercase tracking-wide mt-2 mb-6">
+        DAFTAR LAYANAN<br class="md:hidden" /> & HARGA
       </h2>
       <p class="text-[#A1A1A1] text-lg md:text-xl max-w-2xl">
-        Layanan spesifik untuk setiap kebutuhan restorasi dan pembersihan item kesayanganmu.
+        Pilih layanan yang sesuai dengan kebutuhan itemmu. Harga transparan dan konsultasi tersedia sebelum pengerjaan.
       </p>
     </div>
 
-    <!-- Service Menu List -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 mb-24">
-      {categories.map((cat) => (
-        <div class="flex flex-col">
-          <h3 class="font-display text-white/50 text-2xl tracking-widest uppercase mb-6 border-b border-white/10 pb-4">{cat.name}</h3>
-          <ul class="flex flex-col">
+    <!-- Main Categories Grid (Shoes, Repair, Accessories) -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 mb-8">
+      {categories.map((cat, idx) => (
+        <div class="pricing-card group flex flex-col bg-[#111111] border border-[#262626] rounded-2xl p-6 sm:p-8 hover:border-[#FFE600]/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_-10px_rgba(255,230,0,0.15)] relative overflow-hidden" style={`animation-delay: ${idx * 0.15}s;`}>
+          <!-- Header -->
+          <div class="flex flex-col gap-4 mb-6 pb-6 border-b border-white/5 relative z-10">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-[#1A1A1A] text-[#FFE600] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <Fragment set:html={cat.icon} />
+              </div>
+              <h3 class="font-display text-white text-2xl tracking-widest uppercase leading-none">{cat.name}</h3>
+            </div>
+            <p class="text-[#A1A1A1] text-sm leading-relaxed">{cat.desc}</p>
+          </div>
+
+          <!-- Services List -->
+          <ul class="flex flex-col gap-4 flex-grow relative z-10">
             {cat.services.map((service) => (
-              <li class="group flex items-center justify-between py-4 border-b border-white/5 transition-colors duration-300 hover:border-white/20">
-                <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-3">
-                  <span class="text-white/90 text-base md:text-lg group-hover:text-white transition-colors duration-300">{service.name}</span>
-                  {service.badge && (
-                    <span class="inline-block w-fit text-[9px] md:text-[10px] font-bold tracking-widest px-2 py-0.5 rounded bg-white/5 text-white/60 uppercase border border-white/5">
-                      {service.badge}
-                    </span>
-                  )}
+              <li class="flex flex-col gap-1">
+                <div class="flex items-center justify-between">
+                  <div class="flex flex-col items-start gap-1">
+                    <span class="text-white/90 text-base font-medium group-hover:text-white transition-colors duration-300">{service.name}</span>
+                    {service.time && (
+                      <span class="text-[#A1A1A1]/70 text-[11px] leading-none">{service.time}</span>
+                    )}
+                    {service.badge && (
+                      <span class="inline-block text-[9px] font-bold tracking-widest px-2 py-0.5 rounded bg-[#FFE600]/10 text-[#FFE600] uppercase border border-[#FFE600]/20">
+                        {service.badge}
+                      </span>
+                    )}
+                  </div>
+                  <span class="text-[#FFE600] font-mono text-sm tracking-widest font-bold shrink-0">{service.price}</span>
                 </div>
-                <span class="text-[#FFE600] font-display text-xl md:text-2xl tracking-wider pl-4 shrink-0 transition-transform duration-300 group-hover:scale-105 group-hover:-translate-x-1">{service.price}</span>
+                <div class="w-full border-t border-dashed border-white/10 mt-1 opacity-30 group-hover:opacity-50 transition-opacity"></div>
               </li>
             ))}
           </ul>
+
+          {(cat.estimates || cat.benefits || cat.footerNote) && (
+            <div class="relative z-10 mt-6 pt-5 border-t border-white/10">
+              {cat.estimates && (
+                <div>
+                  <h4 class="text-[#FFE600] font-bold text-[10px] tracking-[0.18em] uppercase mb-3">Estimasi Pengerjaan</h4>
+                  <ul class="flex flex-col gap-2">
+                    {cat.estimates.map((estimate) => (
+                      <li class="flex items-center justify-between gap-4 text-[#A1A1A1] text-xs leading-relaxed">
+                        <span>{estimate.name}</span>
+                        <span class="text-white/60 shrink-0">{estimate.time}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {cat.benefits && (
+                <ul class="flex flex-col gap-2.5 mt-5">
+                  {cat.benefits.map((benefit) => (
+                    <li class="flex items-start gap-2.5 text-[#A1A1A1] text-xs leading-relaxed">
+                      <span class="text-[#FFE600] text-xs leading-relaxed shrink-0">✓</span>
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {cat.footerNote && (
+                <p class="text-[#A1A1A1] text-xs leading-relaxed italic">{cat.footerNote}</p>
+              )}
+            </div>
+          )}
         </div>
       ))}
     </div>
 
-    <!-- Paket Hemat -->
-    <div class="mt-32 md:mt-40">
-      <div class="text-left mb-12">
-        <span class="inline-block text-[#FFE600] font-bold text-sm tracking-[0.2em] uppercase mb-4">HEMAT HINGGA RP40K</span>
-        <h2 class="font-display text-white text-[2.5rem] md:text-[4rem] uppercase tracking-wide mb-3">PAKET HEMAT</h2>
-        <p class="text-[#A1A1A1] text-lg">Semakin banyak item, semakin hemat.</p>
+    <!-- Home Care Wide Card -->
+    <div class="pricing-card group flex flex-col bg-[#111111] border border-[#262626] rounded-2xl p-6 sm:p-8 hover:border-[#FFE600]/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_-10px_rgba(255,230,0,0.15)] relative overflow-hidden mb-16" style="animation-delay: 0.45s;">
+      <!-- Header -->
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-8 pb-6 border-b border-white/5 relative z-10">
+        <div class="flex flex-col gap-4 max-w-xl">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-[#1A1A1A] text-[#FFE600] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+              <Fragment set:html={homeCare.icon} />
+            </div>
+            <h3 class="font-display text-white text-2xl tracking-widest uppercase leading-none">{homeCare.name}</h3>
+          </div>
+          <p class="text-[#A1A1A1] text-sm leading-relaxed">{homeCare.desc}</p>
+        </div>
       </div>
 
-      <!-- Mobile Scroll Snap Container -->
-      <div class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar md:grid md:grid-cols-4 gap-4 md:gap-6 pb-8 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0 items-center">
+      <!-- Home Care Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+        {homeCare.groups.map(group => (
+          <div class="flex flex-col">
+            <h4 class="text-white/60 font-bold text-xs tracking-[0.2em] uppercase mb-2">{group.title}</h4>
+            {group.estimate && (
+              <p class="text-[#A1A1A1]/70 text-xs mb-4">{group.estimate}</p>
+            )}
+            <ul class="flex flex-col gap-4 flex-grow">
+              {group.services.map((service) => (
+                <li class="flex flex-col gap-1">
+                  <div class="flex items-center justify-between">
+                    <span class="text-white/90 text-sm md:text-base group-hover:text-white transition-colors duration-300">{service.name}</span>
+                    <span class="text-[#FFE600] font-mono text-xs md:text-sm tracking-widest font-bold shrink-0">{service.price}</span>
+                  </div>
+                  <div class="w-full border-t border-dashed border-white/10 mt-1 opacity-30 group-hover:opacity-50 transition-opacity"></div>
+                </li>
+              ))}
+            </ul>
+            {group.benefits && (
+              <ul class="flex flex-col gap-2 -mt-6 mb-8">
+                {group.benefits.map((benefit) => (
+                  <li class="flex items-start gap-2 text-[#A1A1A1] text-xs leading-relaxed">
+                    <span class="text-[#FFE600] text-xs leading-relaxed shrink-0">✓</span>
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {group.note && (
+              <p class="text-[#FFE600]/70 text-xs italic mt-4">* {group.note}</p>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Paket Hemat Sub-section -->
+    <div class="pricing-card relative z-10 bg-[#0D0D0D] border border-white/5 rounded-2xl p-7 sm:p-12 mb-16" style="animation-delay: 0.6s;">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-10">
+        <div>
+          <h3 class="font-display text-white text-3xl tracking-widest uppercase mb-2">PAKET HEMAT DEEP CLEAN</h3>
+          <p class="text-[#A1A1A1] text-base mb-2">Semakin banyak item, semakin hemat.</p>
+          <p class="text-[#A1A1A1]/80 text-sm">Cocok untuk koleksi pribadi, reseller, komunitas, dan keluarga.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {packages.map((pkg) => (
-          <div class={`shrink-0 w-[280px] md:w-auto snap-center flex flex-col justify-between bg-[#111111] rounded-[24px] p-8 transition-all duration-300 ${pkg.popular ? 'border border-[#FFE600] md:scale-110 relative shadow-[0_0_30px_rgba(255,230,0,0.1)] z-10' : 'border border-white/5 mt-0 md:mt-4 mb-0 md:mb-4 opacity-70 hover:opacity-100'}`}>
+          <div class={`flex flex-col justify-between bg-[#111111] rounded-xl p-7 min-h-[180px] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#FFE600]/60 ${pkg.popular ? 'border border-[#FFE600]/55 relative shadow-[0_0_32px_rgba(255,230,0,0.12)] scale-100 lg:scale-105 z-10' : 'border border-white/5 opacity-80 hover:opacity-100'}`}>
             {pkg.popular && (
-              <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#FFE600] text-black text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-wider whitespace-nowrap">
+              <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FFE600] text-black text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-wider whitespace-nowrap shadow-[0_0_18px_rgba(255,230,0,0.18)]">
                 PALING POPULER
               </span>
             )}
-            <div class="flex justify-between items-start mb-6">
-              <div>
-                <h3 class={`font-bold text-xl mb-1 ${pkg.popular ? 'text-white' : 'text-white/90'}`}>{pkg.name}</h3>
-                <p class="text-[#A1A1A1] text-sm">{pkg.desc}</p>
-              </div>
+            <div class="flex justify-between items-start gap-3 mb-5">
+              <h4 class={`font-bold text-xl ${pkg.popular ? 'text-white' : 'text-white/90'}`}>{pkg.name}</h4>
               <span class="inline-block text-[9px] font-bold tracking-wider px-2 py-1 rounded bg-[#FFE600]/10 text-[#FFE600] border border-[#FFE600]/20 uppercase whitespace-nowrap mt-1">
                 {pkg.savings}
               </span>
             </div>
             <div class="mt-auto">
-              <div class="text-[#A1A1A1] text-sm line-through decoration-1 decoration-white/30 mb-1">{pkg.originalPrice}</div>
+              <div class="text-[#A1A1A1] text-xs line-through decoration-1 decoration-[#FFE600]/60 mb-1.5">{pkg.originalPrice}</div>
               <div class="text-[#FFE600] font-display text-4xl tracking-wide leading-none">{pkg.price}</div>
             </div>
           </div>
@@ -111,8 +304,15 @@ const waLink = 'https://wa.me/6282232725242?text=Halo%20kucek.shoes,%20saya%20in
       </div>
     </div>
 
+    <!-- Note -->
+    <div class="text-left mb-16 animate-slide-up" style="animation-delay: 0.7s;">
+      <p class="text-[#6B7280] text-sm italic">
+        * Harga dapat menyesuaikan kondisi item, ukuran, material, dan tingkat pengerjaan.
+      </p>
+    </div>
+
     <!-- CTA -->
-    <div class="text-center mt-20">
+    <div class="text-center mt-12 animate-slide-up" style="animation-delay: 0.8s;">
       <a href={waLink} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-[#FFE600] text-black font-bold uppercase tracking-widest text-sm md:text-base px-10 py-5 rounded-full hover:bg-white hover:scale-105 hover:shadow-[0_0_30px_rgba(255,230,0,0.3)] transition-all duration-300 ease-out">
         Konsultasi via WhatsApp &rarr;
       </a>
@@ -121,12 +321,32 @@ const waLink = 'https://wa.me/6282232725242?text=Halo%20kucek.shoes,%20saya%20in
 </section>
 
 <style>
-  /* Hide scrollbar for mobile scroll snap */
-  .hide-scrollbar::-webkit-scrollbar {
-    display: none;
+  .pricing-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
-  .hide-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Subtle gradient hover effect for cards */
+  .pricing-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(255, 230, 0, 0.05), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+  }
+
+  .pricing-card:hover::before {
+    opacity: 1;
   }
 </style>
+

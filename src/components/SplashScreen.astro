@@ -1,0 +1,215 @@
+---
+/**
+ * SplashScreen.astro
+ * Premium 2-second animated splash screen for KUCEK.SHOES
+ * Layout mirrors the footer brand: text left + shoe icon right, all yellow
+ */
+---
+
+<div id="splash-screen" class="splash-overlay" aria-hidden="true">
+  <div class="splash-content">
+    <!-- Brand layout: same as footer -->
+    <div class="splash-brand">
+      <div class="splash-brand-text">
+        <span class="splash-line splash-kucek">KUCEK.</span>
+        <span class="splash-line splash-shoes">SHOES</span>
+      </div>
+      <div
+        class="splash-brand-icon"
+        style={`
+          mask-image: url('${import.meta.env.BASE_URL}ikonkucek.png');
+          mask-size: contain;
+          mask-repeat: no-repeat;
+          mask-position: center;
+          -webkit-mask-image: url('${import.meta.env.BASE_URL}ikonkucek.png');
+          -webkit-mask-size: contain;
+          -webkit-mask-repeat: no-repeat;
+          -webkit-mask-position: center;
+        `}
+      ></div>
+    </div>
+    <!-- Glow -->
+    <div class="splash-glow"></div>
+  </div>
+  
+  <!-- Transition Line -->
+  <div class="splash-indicator-line"></div>
+</div>
+
+<style>
+  .splash-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: #0A0A0A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(0);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: all;
+  }
+
+  .splash-overlay.is-done {
+    transform: translateY(-100%);
+    pointer-events: none;
+  }
+
+  .splash-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: contentBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1.4s both;
+  }
+
+  /* ── Brand Group ── */
+  .splash-brand {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .splash-brand-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-style: italic;
+    letter-spacing: 0.08em;
+  }
+
+  .splash-line {
+    color: #FFE600;
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(3px);
+  }
+
+  .splash-kucek {
+    font-size: 3.5rem;
+    line-height: 1;
+    animation: textUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  }
+
+  .splash-shoes {
+    font-size: 3.5rem;
+    line-height: 1;
+    margin-top: -0.35rem;
+    animation: textUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+  }
+
+  @media (min-width: 768px) {
+    .splash-kucek,
+    .splash-shoes {
+      font-size: 5rem;
+    }
+    .splash-shoes {
+      margin-top: -0.5rem;
+    }
+  }
+
+  /* ── Shoe Icon ── */
+  .splash-brand-icon {
+    width: 100px;
+    height: 100px;
+    margin-left: -24px;
+    background: #FFE600;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: iconSlideRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+  }
+
+  @media (min-width: 768px) {
+    .splash-brand-icon {
+      width: 140px;
+      height: 140px;
+      margin-left: -32px;
+    }
+  }
+
+  /* ── Glow ── */
+  .splash-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 300px;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 230, 0, 0.12) 0%, transparent 70%);
+    animation: glowPulse 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.0s forwards;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* ── Indicator Line ── */
+  .splash-indicator-line {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 0;
+    border-radius: 4px 4px 0 0;
+    background: #FFE600;
+    animation: lineGrow 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.5s forwards;
+  }
+
+  /* ── Keyframes ── */
+  @keyframes textUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes iconSlideRight {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes glowPulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+    60% {
+      transform: translate(-50%, -50%) scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes contentBounce {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.06); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes lineGrow {
+    to {
+      height: 120px;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var s = document.getElementById('splash-screen');
+    if (!s) return;
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () {
+      s.classList.add('is-done');
+      document.body.style.overflow = '';
+      setTimeout(function () { s.remove(); }, 600);
+    }, 2000);
+  })();
+</script>

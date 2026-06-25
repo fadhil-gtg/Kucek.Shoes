@@ -24,11 +24,11 @@ const config: Config = {
         display: ['Bebas Neue', 'Impact', 'sans-serif'],
       },
       animation: {
-        'fade-in': 'fadeIn 0.8s ease-out forwards',
-        'slide-up': 'slideUp 0.8s ease-out forwards',
-        'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
-        'slide-in-right': 'slideInRight 0.8s ease-out forwards',
-        'scale-in': 'scaleIn 0.6s ease-out forwards',
+        'fade-in': 'fadeIn 0.8s ease-out both',
+        'slide-up': 'slideUp 0.8s ease-out both',
+        'slide-in-left': 'slideInLeft 0.8s ease-out both',
+        'slide-in-right': 'slideInRight 0.8s ease-out both',
+        'scale-in': 'scaleIn 0.6s ease-out both',
         'float': 'float 3s ease-in-out infinite',
       },
       keyframes: {
