@@ -3,10 +3,10 @@ const baseUrl = import.meta.env.BASE_URL;
 
 // Menggunakan data gambar sementara, silakan ganti nama file sesuai dengan gambar asli jika ada
 const categories = [
-  { id: 'deep-cleaning', label: 'DEEP CLEANING', before: `${baseUrl}before-after-gambar/before/deepcleaning.png`, after: `${baseUrl}before-after-gambar/after/deepcleaninga.png` },
-  { id: 'whitening', label: 'WHITENING', before: `${baseUrl}before-after-gambar/before/whitening.png`, after: `${baseUrl}before-after-gambar/after/whiteninga.png` },
-  { id: 'repaint', label: 'REPAINT', before: `${baseUrl}before-after-gambar/before/repaint.png`, after: `${baseUrl}before-after-gambar/after/repainta.png` },
-  { id: 'unyellowing', label: 'UNYELLOWING', before: `${baseUrl}before-after-gambar/before/unyellowing.png`, after: `${baseUrl}before-after-gambar/after/unyellowinga.png` }
+  { id: 'deep-cleaning', label: 'DEEP CLEANING', before: `${baseUrl}before-after-gambar/before/deepcleaning.webp`, after: `${baseUrl}before-after-gambar/after/deepcleaninga.webp` },
+  { id: 'whitening', label: 'WHITENING', before: `${baseUrl}before-after-gambar/before/whitening.webp`, after: `${baseUrl}before-after-gambar/after/whiteninga.webp` },
+  { id: 'repaint', label: 'REPAINT', before: `${baseUrl}before-after-gambar/before/repaint.webp`, after: `${baseUrl}before-after-gambar/after/repainta.webp` },
+  { id: 'unyellowing', label: 'UNYELLOWING', before: `${baseUrl}before-after-gambar/before/unyellowing.webp`, after: `${baseUrl}before-after-gambar/after/unyellowinga.webp` }
 ];
 ---
 
@@ -132,6 +132,16 @@ const categories = [
     if (container.hasAttribute('data-initialized')) return;
     container.setAttribute('data-initialized', 'true');
     
+    // Preload images silently after a short delay to make tab switching instant
+    setTimeout(() => {
+      categories.forEach(cat => {
+        if (cat.id !== categories[0].id) {
+          const i1 = new Image(); i1.src = cat.before;
+          const i2 = new Image(); i2.src = cat.after;
+        }
+      });
+    }, 1000);
+
     // Slider Logic
     range.addEventListener('input', (e) => {
       const val = e.target.value;
@@ -158,23 +168,40 @@ const categories = [
         beforeEl.style.opacity = '0.3';
         imgAfter.style.opacity = '0.3';
 
-        // Wait for fade out, then swap source
-        setTimeout(() => {
-          imgBefore.src = data.before;
-          imgAfter.src = data.after;
-          
-          // Reset slider to center
-          range.value = 50;
-          beforeEl.style.clipPath = `inset(0 50% 0 0)`;
-          handle.style.left = `50%`;
+        // Preload the target images to ensure they are fully downloaded before showing
+        let loaded = 0;
+        const newBefore = new Image();
+        const newAfter = new Image();
 
-          // Wait a tiny bit for src to process, then fade back in
-          setTimeout(() => {
-            loader.style.opacity = '0';
-            beforeEl.style.opacity = '1';
-            imgAfter.style.opacity = '1';
-          }, 150);
-        }, 300);
+        const onImageLoad = () => {
+          loaded++;
+          if (loaded === 2) {
+            imgBefore.src = data.before;
+            imgAfter.src = data.after;
+            
+            // Reset slider to center
+            range.value = 50;
+            beforeEl.style.clipPath = `inset(0 50% 0 0)`;
+            handle.style.left = `50%`;
+
+            // Fade back in
+            setTimeout(() => {
+              loader.style.opacity = '0';
+              beforeEl.style.opacity = '1';
+              imgAfter.style.opacity = '1';
+            }, 50);
+          }
+        };
+
+        newBefore.onload = onImageLoad;
+        newAfter.onload = onImageLoad;
+        
+        // Start loading
+        newBefore.src = data.before;
+        newAfter.src = data.after;
+        
+        // Fallback in case image fails to load
+        setTimeout(() => { if (loaded < 2) { loaded = 1; onImageLoad(); } }, 3000);
       });
     });
   }
