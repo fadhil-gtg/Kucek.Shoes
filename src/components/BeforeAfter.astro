@@ -3,10 +3,10 @@ const baseUrl = import.meta.env.BASE_URL;
 
 // Menggunakan data gambar sementara, silakan ganti nama file sesuai dengan gambar asli jika ada
 const categories = [
-  { id: 'deep-cleaning', label: 'DEEP CLEANING', before: `${baseUrl}before&aftergambar/before/deepcleaning.png`, after: `${baseUrl}before&aftergambar/after/deepcleaninga.png` },
-  { id: 'whitening', label: 'WHITENING', before: `${baseUrl}before&aftergambar/before/whitening.png`, after: `${baseUrl}before&aftergambar/after/whiteninga.png` },
-  { id: 'repaint', label: 'REPAINT', before: `${baseUrl}before&aftergambar/before/repaint.png`, after: `${baseUrl}before&aftergambar/after/repainta.png` },
-  { id: 'unyellowing', label: 'UNYELLOWING', before: `${baseUrl}before&aftergambar/before/unyellowing.png`, after: `${baseUrl}before&aftergambar/after/unyellowinga.png` }
+  { id: 'deep-cleaning', label: 'DEEP CLEANING', before: `${baseUrl}before-after-gambar/before/deepcleaning.png`, after: `${baseUrl}before-after-gambar/after/deepcleaninga.png` },
+  { id: 'whitening', label: 'WHITENING', before: `${baseUrl}before-after-gambar/before/whitening.png`, after: `${baseUrl}before-after-gambar/after/whiteninga.png` },
+  { id: 'repaint', label: 'REPAINT', before: `${baseUrl}before-after-gambar/before/repaint.png`, after: `${baseUrl}before-after-gambar/after/repainta.png` },
+  { id: 'unyellowing', label: 'UNYELLOWING', before: `${baseUrl}before-after-gambar/before/unyellowing.png`, after: `${baseUrl}before-after-gambar/after/unyellowinga.png` }
 ];
 ---
 
@@ -124,15 +124,16 @@ const categories = [
     const imgBefore = document.getElementById('img-before');
     const imgAfter = document.getElementById('img-after');
     const loader = document.getElementById('ba-loader');
+    const container = document.getElementById('ba-container');
 
-    if (!range || !beforeEl || !handle || !imgBefore || !imgAfter || !loader) return;
-
-    // Reset Listeners (prevent duplicates on astro:page-load)
-    const newRange = range.cloneNode(true);
-    range.parentNode?.replaceChild(newRange, range);
+    if (!range || !beforeEl || !handle || !imgBefore || !imgAfter || !loader || !container) return;
+    
+    // Prevent double initialization during Astro page transitions
+    if (container.hasAttribute('data-initialized')) return;
+    container.setAttribute('data-initialized', 'true');
     
     // Slider Logic
-    newRange.addEventListener('input', (e) => {
+    range.addEventListener('input', (e) => {
       const val = e.target.value;
       beforeEl.style.clipPath = `inset(0 ${100 - val}% 0 0)`;
       handle.style.left = `${val}%`;
@@ -140,12 +141,8 @@ const categories = [
 
     // Tab Logic
     tabs.forEach((tab) => {
-      // Remove old listeners to prevent stacking
-      const newTab = tab.cloneNode(true);
-      tab.parentNode?.replaceChild(newTab, tab);
-      
-      newTab.addEventListener('click', () => {
-        const index = newTab.getAttribute('data-index');
+      tab.addEventListener('click', () => {
+        const index = tab.getAttribute('data-index');
         const data = categories[index];
 
         // Update active class for all tabs
@@ -153,8 +150,8 @@ const categories = [
           t.classList.remove('bg-[#FFE600]', 'text-black', 'border-[#FFE600]');
           t.classList.add('bg-transparent', 'text-[#A1A1A1]', 'border-white/20');
         });
-        newTab.classList.remove('bg-transparent', 'text-[#A1A1A1]', 'border-white/20');
-        newTab.classList.add('bg-[#FFE600]', 'text-black', 'border-[#FFE600]');
+        tab.classList.remove('bg-transparent', 'text-[#A1A1A1]', 'border-white/20');
+        tab.classList.add('bg-[#FFE600]', 'text-black', 'border-[#FFE600]');
 
         // Show Loader & Fade out images smoothly
         loader.style.opacity = '1';
@@ -167,7 +164,7 @@ const categories = [
           imgAfter.src = data.after;
           
           // Reset slider to center
-          newRange.value = 50;
+          range.value = 50;
           beforeEl.style.clipPath = `inset(0 50% 0 0)`;
           handle.style.left = `50%`;
 
