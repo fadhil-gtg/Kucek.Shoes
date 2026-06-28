@@ -3,7 +3,7 @@ const steps = [
   {
     num: '01',
     title: 'DATANGI WORKSHOP KAMI',
-    desc: 'Bawa sepatu, tas, topi, atau aksesorimu langsung ke workshop KUCEK.SHOES untuk pengecekan kondisi.',
+    desc: 'Bawa sepatu, tas, topi, atau aksesorimu langsung ke workshop <i>KUCEK.SHOES</i> untuk pengecekan kondisi.',
   },
   {
     num: '02',
@@ -65,8 +65,7 @@ const steps = [
               <h3 class="font-display text-2xl lg:text-3xl text-white uppercase tracking-wide mb-4 transition-transform duration-500 ease-out lg:group-hover:-translate-y-[3px]">
                 {step.title}
               </h3>
-              <p class="text-[#A1A1A1] leading-relaxed text-base lg:text-lg">
-                {step.desc}
+              <p class="text-[#A1A1A1] leading-relaxed text-base lg:text-lg" set:html={step.desc}>
               </p>
             </div>
           </div>
